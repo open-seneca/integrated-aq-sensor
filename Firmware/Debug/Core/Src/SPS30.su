@@ -1,0 +1,9 @@
+SPS30.c:10:9:CalcCrc	32	static
+SPS30.c:26:6:SPS30_start_measurement	32	static
+SPS30.c:34:6:SPS30_stop_measurement	24	static
+SPS30.c:40:6:SPS30_read_data	96	static
+SPS30.c:56:9:SPS30_data_ready	24	static
+SPS30.c:65:6:SPS30_clean_fan	24	static
+SPS30.c:71:6:SPS30_get_serial	56	static
+SPS30.c:80:6:SPS30_reset	24	static
+SPS30.c:87:6:SPS30_read_serialnumber	80	static

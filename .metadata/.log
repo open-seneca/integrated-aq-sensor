@@ -1,0 +1,39 @@
+!SESSION 2021-03-18 00:34:05.306 -----------------------------------------------
+eclipse.buildId=Version 1.6.0
+java.version=11.0.9.1
+java.vendor=AdoptOpenJDK
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=en_GB
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -data C:\Users\Sebastian\OneDrive - University of Cambridge\University\open-seneca\Hardware\integrated-aq-sensor
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 4 4 2021-03-18 00:34:08.167
+!MESSAGE CubeMX plugin appears to be active, Log4j initialization might be too late.
+
+!ENTRY com.st.stm32cube.ide.mcu.informationcenter 1 1 2021-03-18 00:34:08.205
+!MESSAGE Log4j initialized with config file C:\Users\Sebastian\OneDrive - University of Cambridge\University\open-seneca\Hardware\integrated-aq-sensor\.metadata\.log4j.xml
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2021-03-18 00:34:09.537
+!MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.ide 4 4 2021-03-18 00:34:10.057
+!MESSAGE com.st.stm32cube.ide.mcu.ide/META-INF/version/build_ref file not found, build reference will not be reported into properties
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-03-18 00:35:22.398
+!MESSAGE Indexed 'OpenSenecaMiniBoardv3' (142 sources, 150 headers) in 3.45 sec: 26,641 declarations; 121,005 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.099%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-03-18 00:35:43.427
+!MESSAGE Indexed 'Firmware' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-03-18 00:37:18.488
+!MESSAGE Indexed 'OpenSenecaMiniBoardv3' (142 sources, 150 headers) in 2.84 sec: 26,641 declarations; 121,005 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.099%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-03-18 00:38:20.445
+!MESSAGE Indexed 'OpenSenecaMiniBoardv3' (142 sources, 150 headers) in 2.64 sec: 26,641 declarations; 121,005 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.099%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-03-18 00:39:16.969
+!MESSAGE Indexed 'OpenSenecaMiniBoardv3' (142 sources, 150 headers) in 2.76 sec: 26,641 declarations; 121,005 references; 2 unresolved inclusions; 42 syntax errors; 147 unresolved names (0.099%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2021-03-18 00:39:41.822
+!MESSAGE Indexed 'Firmware' (0 sources, 0 headers) in 0 sec: 0 declarations; 0 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.launch 2 0 2021-03-18 00:41:00.009
+!MESSAGE Won't launch debug session since we failed to locate the binary.
