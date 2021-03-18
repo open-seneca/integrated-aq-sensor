@@ -1,6 +1,6 @@
 # How to flash firmware via USB
 
-1) Install both the driver and software in the "Flash firmware" folder of this repository.
+1) Install both the driver and software in the "Win10" folder.
 
 2) Put device in bootloader mode (side switch to B), connect to USB and switch on the button. Windows should have detected the STM32 as a DFU device now.
 
