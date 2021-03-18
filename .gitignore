@@ -1,3 +1,5 @@
 
 *.ini
 *.log
+.metadata
+.obj

@@ -1,4 +1,4 @@
-Tutorial on how to flash the code via USB:
+# How to flash firmware via USB
 
 1) Install both the driver and software in the "Flash firmware" folder of this repository.
 

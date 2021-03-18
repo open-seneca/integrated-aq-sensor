@@ -1,6 +1,6 @@
-# mini-aq-sensor
+# open-seneca integrated-aq-sensor
 
-Here you find the open-source files and assembly instructions on the all-new inegrated open-seneca air quality sensor.
+Here you find the open-source files and assembly instructions on the all-new integrated open-seneca air quality sensor.
 
 We are a citizen science project, please feel free to get in touch!
 
