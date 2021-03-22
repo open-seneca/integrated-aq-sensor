@@ -60,6 +60,7 @@ uint32_t millis = 0; // last measurement
 uint8_t btname[12]; // SPS serial typically 16 bytes, 12 is allowed for name
 uint8_t filename[11]; // 11 bytes allowed for filename length
 uint8_t data[164];
+uint8_t uid[3];
 
 FATFS FatFs; 	//Fatfs handle
 FIL fil; 		//File handle
@@ -180,7 +181,7 @@ void initDisplay() {
 
 void updateDisplay() {
 
-	  float pm25 = SPS30.spsData[1];//0.34f;
+	  float pm25 = SPS30.spsData[1];
 	  char screen_str[16];
 
 	  float aqi = AQIPM25(pm25);
@@ -188,13 +189,9 @@ void updateDisplay() {
 	  int aqi_width = barwidth*aqi/500. +2;
 
 	  int gps_satellites = GPS.GPGGA.SatellitesUsed;
-	  int fix = GPS.GPGGA.PositionFixIndicator;//1;
+	  int fix = GPS.GPGGA.PositionFixIndicator;
 
-	  float vbat = batteryVoltage;//3.95f; //batteryVoltage;
-
-	  int write_status = 1;
-
-	  write_status = (int)round(pm25) % 2; // to imitate card write status
+	  float vbat = batteryVoltage;
 
 	  u8g2_FirstPage(&u8g2);
 	  		do
@@ -226,8 +223,8 @@ void updateDisplay() {
           battery_dots_vert(vbat);
 
           // air quality indicator
-          u8g2_DrawRFrame(&u8g2, 128-barwidth, 29, barwidth, 5, 1);
-          u8g2_DrawRBox(&u8g2, 128-aqi_width, 29, aqi_width, 3, 1);
+          u8g2_DrawRFrame(&u8g2, 128-barwidth, 27, barwidth, 7, 1);
+          u8g2_DrawRBox(&u8g2, 128-aqi_width, 27, aqi_width, 5, 1);
 
 
 
@@ -334,7 +331,7 @@ void AirLED_off() {
 void renameBT() {
 
 	/* max length of hm11 name is 12 */
-	sprintf(btname, "%s%c%c%c%c%c%c%c%c%c", "OS-", SPS30.serial[0], SPS30.serial[1], SPS30.serial[2], SPS30.serial[3], SPS30.serial[4], SPS30.serial[5], SPS30.serial[6], SPS30.serial[7], SPS30.serial[8]);
+	sprintf(btname, "%s%c%c%c", "open-sene", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
 	uint8_t btcmd[19];
 	sprintf(btcmd, "%s%s", "AT+NAME", btname);
 	HAL_UART_Transmit(&huart1, btcmd, 19, HAL_MAX_DELAY);
@@ -350,7 +347,7 @@ void generateFilename() {
 	FRESULT res;
 	/* first 3 digits from SPS SN, then 4 digit file counter */
 	while (res == FR_OK) {
-		sprintf(filename, "%c%c%c%04d.csv", SPS30.serial[0], SPS30.serial[1], SPS30.serial[2], filenumber);
+		sprintf(filename, "%c%c%c%04d.csv", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15], filenumber);
 		res = f_open(&fil, filename, FA_READ);
 		f_close(&fil);
 		filenumber++;
