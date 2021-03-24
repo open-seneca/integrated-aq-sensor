@@ -189,7 +189,6 @@ void updateDisplay() {
 	  int aqi_width = barwidth*aqi/500. +2;
 
 	  int gps_satellites = GPS.GPGGA.SatellitesUsed;
-	  int fix = GPS.GPGGA.PositionFixIndicator;
 
 	  float vbat = batteryVoltage;
 
@@ -217,7 +216,7 @@ void updateDisplay() {
           u8g2_SetFont(&u8g2, u8g2_font_profont10_tf);
 
           // gps
-          gps_dots(gps_satellites, fix);
+          gps_dots(gps_satellites, GPS.GPGGA.PositionFixIndicator);
 
           // battery
           battery_dots_vert(vbat);
@@ -279,15 +278,6 @@ int SHTC3_read_data() { // for sht21
 
 }
 
-void updateGPS() {
-	GPS_Process(); // tell library to receive from GPS module
-
-//	if (GPS.GPGGA.SatellitesUsed == 0) gpsSkipped++;
-//	if (gpsSkipped > 5) reset
-//	gpsSkipped = 0;
-
-}
-
 void initRGBLED() {
 
 	HAL_TIM_PWM_Start(&htim2, TIM_CHANNEL_1);
@@ -331,7 +321,7 @@ void AirLED_off() {
 void renameBT() {
 
 	/* max length of hm11 name is 12 */
-	sprintf(btname, "%s%c%c%c", "open-sene", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
+	sprintf(btname, "%s%c%c%c", "OPEN-SENE", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
 	uint8_t btcmd[19];
 	sprintf(btcmd, "%s%s", "AT+NAME", btname);
 	HAL_UART_Transmit(&huart1, btcmd, 19, HAL_MAX_DELAY);
@@ -504,7 +494,6 @@ int main(void)
 	  }
 	  HAL_Delay(50);
 	  SHTC3_read_data();
-	  updateGPS();
 	  updateADC();
 
 	  /* Format output data string */
@@ -513,7 +502,7 @@ int main(void)
 			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f," // pm1, pm25, pm4, pm10, t, rh
 			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%d,%d,%.2f\n", // nc0.5, nc1.0, nc2.5, nc4.0, nc10, psize, tvoc, eco2, vbat
 			  counter, GPS.GPGGA.LatitudeDecimal, GPS.GPGGA.LongitudeDecimal, GPS.GPGGA.PositionFixIndicator,
-			  GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYMMDD, GPS.GPGGA.HHMMSS, millis,
+			  GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
 			  SPS30.spsData[0], SPS30.spsData[1], SPS30.spsData[2], SPS30.spsData[3], temp, rh,
 			  SPS30.spsData[4], SPS30.spsData[5], SPS30.spsData[6], SPS30.spsData[7], SPS30.spsData[8], SPS30.spsData[9], 0, 0, batteryVoltage);
 

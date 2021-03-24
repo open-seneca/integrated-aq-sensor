@@ -25,33 +25,41 @@ double convertDegMinToDecDeg (float degMin)
 //##################################################################################################################
 void	GPS_Init(void)
 {
+	memset(&GPS.GPGGA,0,sizeof(GPS.GPGGA));  // resets GPGGA to 0
 	GPS.rxIndex=0;
 	HAL_UART_Receive_IT(&_GPS_USART,&GPS.rxTmp,1);	
 }
 //##################################################################################################################
-void	GPS_CallBack(void)
+void	GPS_CallBack(void) /* Receiving GPS UART buffer byte by byte until it starts repeating */
 {
-	GPS.LastTime=HAL_GetTick();
-	if(GPS.rxIndex < sizeof(GPS.rxBuffer)-2)
-	{
+	/* We expect 14 NMEA sentences separated by a $ symbol */
+	if (GPS.nmeaCounter < 14) {
 		GPS.rxBuffer[GPS.rxIndex] = GPS.rxTmp;
+		if (GPS.rxTmp == 36) GPS.nmeaCounter++; // 36 is '$' in UTF8
 		GPS.rxIndex++;
 	}	
+	else GPS_Process();
+
 	HAL_UART_Receive_IT(&_GPS_USART,&GPS.rxTmp,1);
 }
 //##################################################################################################################
 void	GPS_Process(void)
 {
 	char	*str;
+	char	*str2;
+	char	*str3;
 	#if (_GPS_DEBUG==1)
 	printf("%s",GPS.rxBuffer);
 	#endif
+	GPS.GPGGA.Buffer_Size = strlen(GPS.rxBuffer);
 	str=strstr((char*)GPS.rxBuffer,"GNGGA,"); // GNZDA for where the date is in the buffer
 	if(str!=NULL)
 	{
 		memset(&GPS.GPGGA,0,sizeof(GPS.GPGGA));  // resets GPGGA to 0
 		// GNGGA for where the position is in the buffer
 		sscanf(str,"GNGGA,%f,%f,%c,%f,%c,%d,%d,%f,%f",&GPS.GPGGA.HHMMSS,&GPS.GPGGA.Latitude,&GPS.GPGGA.NS_Indicator,&GPS.GPGGA.Longitude,&GPS.GPGGA.EW_Indicator,&GPS.GPGGA.PositionFixIndicator,&GPS.GPGGA.SatellitesUsed,&GPS.GPGGA.HDOP,&GPS.GPGGA.MSL_Altitude);  // GNGGA instead of GPGGA
+		if(GPS.GPGGA.PositionFixIndicator>0)
+			GPS.GPGGA.NS_Indicator=1;
 		if(GPS.GPGGA.NS_Indicator==0)
 			GPS.GPGGA.NS_Indicator='-';
 		if(GPS.GPGGA.EW_Indicator==0)
@@ -67,26 +75,32 @@ void	GPS_Process(void)
 			GPS.GPGGA.LatitudeDecimal=convertDegMinToDecDeg(GPS.GPGGA.Latitude);
 			GPS.GPGGA.LongitudeDecimal=convertDegMinToDecDeg(GPS.GPGGA.Longitude);
 		}
-	}
-	str=strstr((char*)GPS.rxBuffer,"GNZDA,"); // GNZDA for where the date is in the buffer
-	if(str!=NULL) {
-		// format: GNZDA,181815.000,03,02,2021
-		sscanf(str,"GNZDA,%f,%d,%d,%d",&GPS.GPGGA.HHMMSS,&GPS.GPGGA.UTC_Day,&GPS.GPGGA.UTC_Month,&GPS.GPGGA.UTC_Year);
-		GPS.GPGGA.UTC_Hour = (int)(GPS.GPGGA.HHMMSS/10000.f);
-		GPS.GPGGA.UTC_Min = (int)GPS.GPGGA.HHMMSS%10000/100;
-		GPS.GPGGA.UTC_Sec = (int)GPS.GPGGA.HHMMSS%100;
-		GPS.GPGGA.YYMMDD = 10000*GPS.GPGGA.UTC_Year+100*GPS.GPGGA.UTC_Month+GPS.GPGGA.UTC_Day;
-		if (GPS.GPGGA.YYMMDD < 19700000) GPS.GPGGA.YYMMDD = 0;
-	}
-	str=strstr((char*)GPS.rxBuffer,"GNRMC,"); // GNRMC for where the speed is in the buffer
-	if(str!=NULL) {
-		sscanf(str,"GNRMC,%*f,%*c,%*f,%*c,%*f,%*c,%f",&GPS.GPGGA.Speed_KTS);
-		GPS.GPGGA.Speed_KMH = 1.852f * GPS.GPGGA.Speed_KTS; // conversion from knots to km/h
+		str2=strstr((char*)GPS.rxBuffer,"GNZDA,"); // GNZDA for where the date is in the buffer
+		if(str2!=NULL) {
+			// format: GNZDA,181815.000,03,02,2021
+			sscanf(str2,"GNZDA,%f,%d,%d,%d",&GPS.GPGGA.HHMMSS,&GPS.GPGGA.UTC_Day,&GPS.GPGGA.UTC_Month,&GPS.GPGGA.UTC_Year);
+			GPS.GPGGA.UTC_Hour = (int)(GPS.GPGGA.HHMMSS/10000.f);
+			GPS.GPGGA.UTC_Min = (int)GPS.GPGGA.HHMMSS%10000/100.f;
+			GPS.GPGGA.UTC_Sec = (int)GPS.GPGGA.HHMMSS%100;
+			GPS.GPGGA.YYYYMMDD = 10000*GPS.GPGGA.UTC_Year+100*GPS.GPGGA.UTC_Month+GPS.GPGGA.UTC_Day;
+			if (GPS.GPGGA.YYYYMMDD < 19700000) GPS.GPGGA.YYYYMMDD = 0;
+		}
+		str3=strstr((char*)GPS.rxBuffer,"GNRMC,"); // GNRMC for where the speed is in the buffer
+		if(str3!=NULL) {
+			uint8_t speed[5];
+			if (sscanf(str3,"GNRMC,%*f,%*c,%*f,%*c,%*f,%*c,%4s,",&speed) > 0) {
+				GPS.GPGGA.Speed_KTS = atof(speed);
+				GPS.GPGGA.Speed_KMH = 1.852f * GPS.GPGGA.Speed_KTS; // conversion from knots to km/h
+			}
+			else {
+				GPS.GPGGA.Speed_KTS = -1;
+				GPS.GPGGA.Speed_KMH = -1;
+			}
+		}
 	}
 	memset(GPS.rxBuffer,0,sizeof(GPS.rxBuffer)); // resets rxBuffer
 	GPS.rxIndex=0;
-
-	HAL_UART_Receive_IT(&_GPS_USART,&GPS.rxTmp,1);
+	GPS.nmeaCounter=0;
 	GPS.LastTime=HAL_GetTick();
 }
 //##################################################################################################################

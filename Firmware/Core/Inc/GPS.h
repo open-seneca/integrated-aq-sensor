@@ -19,7 +19,7 @@ typedef struct
 	double			LongitudeDecimal;
 	char			EW_Indicator;
 	
-	uint8_t			PositionFixIndicator;
+	int				PositionFixIndicator;
 	uint8_t			SatellitesUsed;
 	float			HDOP;
 	float			MSL_Altitude;
@@ -37,17 +37,19 @@ typedef struct
 	uint8_t			UTC_Day;
 	uint8_t			UTC_Month;
 	uint16_t		UTC_Year;
-	uint32_t		YYMMDD;
+	uint32_t		YYYYMMDD;
 
+	uint16_t		Buffer_Size;
 
 }GPGGA_t;
 
 typedef struct 
 {
-	uint8_t		rxBuffer[512];
+	uint8_t		rxBuffer[1024];
 	uint16_t	rxIndex;
 	uint8_t		rxTmp;	
-	uint32_t	LastTime;	
+	uint8_t		nmeaCounter;
+	uint32_t	LastTime;
 	
 	GPGGA_t		GPGGA;
 	

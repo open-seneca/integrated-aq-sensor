@@ -10,3 +10,22 @@
 
 
 2021-03-22 22:00:03,868 [INFO] Activator:171 - !SESSION log4j initialized
+2021-03-23 01:33:51,806 [INFO] Activator:170 - 
+
+
+2021-03-23 01:33:51,807 [INFO] Activator:171 - !SESSION log4j initialized
+2021-03-23 01:34:27,639 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {}->http://sw-center.st.com:80: The target server failed to respond
+2021-03-23 01:34:27,641 [INFO] RetryExec:113 - Retrying request to {}->http://sw-center.st.com:80
+2021-03-23 15:06:58,882 [INFO] Activator:170 - 
+
+
+2021-03-23 15:06:58,884 [INFO] Activator:171 - !SESSION log4j initialized
+2021-03-24 01:17:18,493 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] Exception in thread "MI TX Thread" java.lang.NullPointerException
+2021-03-24 01:17:18,494 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.dsf.mi.service.command.commands.MICommand$MIStandardParameterAdjustable.getAdjustedValue(MICommand.java:337)
+2021-03-24 01:17:18,495 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.dsf.mi.service.command.commands.MICommand.parametersToString(MICommand.java:242)
+2021-03-24 01:17:18,496 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.dsf.mi.service.command.commands.MICommand.constructCommand(MICommand.java:180)
+2021-03-24 01:17:18,497 [ERROR] LogOutputStream:74 - [STDERR_REDIRECT] 	at org.eclipse.cdt.dsf.mi.service.command.AbstractMIControl$TxThread.run(AbstractMIControl.java:740)
+2021-03-24 02:37:05,208 [INFO] Activator:170 - 
+
+
+2021-03-24 02:37:05,209 [INFO] Activator:171 - !SESSION log4j initialized
