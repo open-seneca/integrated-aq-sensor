@@ -162,8 +162,8 @@ void battery_dots_vert(float voltage) {
 	if (voltage > 3.2) u8g2_DrawRBox(&u8g2, 127-0, 2, 2, 4, 1); // -62
 	if (voltage > 3.35) u8g2_DrawRBox(&u8g2, 125-0, 2, 2, 4, 1);
 	if (voltage > 3.45) u8g2_DrawRBox(&u8g2, 123-0, 2, 2, 4, 1);
-	if (voltage > 3.6) u8g2_DrawRBox(&u8g2, 121-0, 2, 2, 4, 1);
-	if (voltage > 4.5) u8g2_DrawRBox(&u8g2, 119-0, 2, 2, 4, 1);
+	if (voltage > 3.55) u8g2_DrawRBox(&u8g2, 121-0, 2, 2, 4, 1);
+	if (voltage > 3.65) u8g2_DrawRBox(&u8g2, 119-0, 2, 2, 4, 1);
 }
 
 void initDisplay() {
@@ -495,6 +495,7 @@ int main(void)
 	  HAL_Delay(50);
 	  SHTC3_read_data();
 	  updateADC();
+	  millis = HAL_GetTick();
 
 	  /* Format output data string */
 	  uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
@@ -521,9 +522,8 @@ int main(void)
 	  /* Increase counter and wait */
 	  counter++;
 	  while (HAL_GetTick()-millis < 1000) {
-		  HAL_Delay(10); // wait 10ms to save power
+		  HAL_Delay(10); // does increasing this delay save power?
 	  }
-	  millis = HAL_GetTick();
   }
   /* USER CODE END 3 */
 }

@@ -32,15 +32,13 @@ void	GPS_Init(void)
 //##################################################################################################################
 void	GPS_CallBack(void) /* Receiving GPS UART buffer byte by byte until it starts repeating */
 {
-	/* We expect 14 NMEA sentences separated by a $ symbol */
-	if (GPS.nmeaCounter < 14) {
-		GPS.rxBuffer[GPS.rxIndex] = GPS.rxTmp;
-		if (GPS.rxTmp == 36) GPS.nmeaCounter++; // 36 is '$' in UTF8
-		GPS.rxIndex++;
-	}	
-	else GPS_Process();
-
 	HAL_UART_Receive_IT(&_GPS_USART,&GPS.rxTmp,1);
+
+	/* We expect 14 NMEA sentences separated by a $ symbol */
+	GPS.rxBuffer[GPS.rxIndex] = GPS.rxTmp;
+	if (GPS.rxTmp == 36) GPS.nmeaCounter++; // 36 is '$' in UTF8
+	GPS.rxIndex++;
+	if (GPS.nmeaCounter >= 13) GPS_Process();
 }
 //##################################################################################################################
 void	GPS_Process(void)
@@ -59,7 +57,7 @@ void	GPS_Process(void)
 		// GNGGA for where the position is in the buffer
 		sscanf(str,"GNGGA,%f,%f,%c,%f,%c,%d,%d,%f,%f",&GPS.GPGGA.HHMMSS,&GPS.GPGGA.Latitude,&GPS.GPGGA.NS_Indicator,&GPS.GPGGA.Longitude,&GPS.GPGGA.EW_Indicator,&GPS.GPGGA.PositionFixIndicator,&GPS.GPGGA.SatellitesUsed,&GPS.GPGGA.HDOP,&GPS.GPGGA.MSL_Altitude);  // GNGGA instead of GPGGA
 		if(GPS.GPGGA.PositionFixIndicator>0)
-			GPS.GPGGA.NS_Indicator=1;
+			GPS.GPGGA.PositionFixIndicator=1;
 		if(GPS.GPGGA.NS_Indicator==0)
 			GPS.GPGGA.NS_Indicator='-';
 		if(GPS.GPGGA.EW_Indicator==0)
