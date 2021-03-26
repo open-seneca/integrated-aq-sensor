@@ -60,7 +60,6 @@ uint32_t millis = 0; // last measurement
 uint8_t btname[12]; // SPS serial typically 16 bytes, 12 is allowed for name
 uint8_t filename[11]; // 11 bytes allowed for filename length
 uint8_t data[164];
-uint8_t uid[3];
 
 FATFS FatFs; 	//Fatfs handle
 FIL fil; 		//File handle
@@ -94,7 +93,8 @@ static u8g2_t u8g2;
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart)
 {
-  GPS_CallBack();
+	if (huart == &huart2) GPS_CallBack();
+	if (huart == &huart1) HAL_UART_Receive_IT(&huart1,&readBuf,1);
 }
 
 char * screen_format(int val) {
@@ -225,8 +225,6 @@ void updateDisplay() {
           u8g2_DrawRFrame(&u8g2, 128-barwidth, 27, barwidth, 7, 1);
           u8g2_DrawRBox(&u8g2, 128-aqi_width, 27, aqi_width, 5, 1);
 
-
-
 	  		} while (u8g2_NextPage(&u8g2));
 }
 
@@ -241,6 +239,18 @@ void welcomeDisplay() {
 		u8g2_SetFont(&u8g2, u8g2_font_profont10_tf);
 		u8g2_DrawStr(&u8g2, 127, 4, "air quality sensor ...");
 	} while (u8g2_NextPage(&u8g2));
+
+}
+
+void lowBatteryDisplay() {
+
+	u8g2_FirstPage(&u8g2);
+	u8g2_NextPage(&u8g2);
+	HAL_Delay(1000);
+	u8g2_DrawRFrame(&u8g2, 117-0, 0, 11, 8, 1);
+	u8g2_DrawRBox(&u8g2, 116-0, 3, 2, 2, 1);
+	u8g2_NextPage(&u8g2);
+	HAL_Delay(1000);
 
 }
 
@@ -276,6 +286,19 @@ int SHTC3_read_data() { // for sht21
 
 	  return 1;
 
+}
+
+void KX023_read_tilt() {
+	HAL_StatusTypeDef status;
+	uint16_t addr = 0x1E;
+	uint16_t TSCP = 0x10; // Current Tilt Position Register
+	uint16_t TSPP = 0x11; // Previous Tilt Position Register
+	uint8_t rxBuf[8];
+//	status = HAL_I2C_Master_Transmit(&hi2c1, (addr<<1), TSCP, 2, HAL_MAX_DELAY);
+//	status = HAL_I2C_Master_Receive(&hi2c1, (addr << 1), (uint8_t *) rxBuf, 6, HAL_MAX_DELAY);
+
+	status = HAL_I2C_Mem_Read(&hi2c1, (addr << 1), TSPP, 2, &rxBuf, 8, HAL_MAX_DELAY);
+	status = HAL_I2C_Mem_Read(&hi2c1, (addr << 1), 0x00, 2, &rxBuf, 8, HAL_MAX_DELAY);
 }
 
 void initRGBLED() {
@@ -384,7 +407,7 @@ int writeFileHeader() {
 	if (f_write(&fil, details, length, &bytesWrote) != FR_OK) return -1;
 
 	uint8_t header[195];
-	length = sprintf(header, "Counter,Latitude,Longitude,gpsUpdated,Speed,Altitude,Satellites,Date,Time,Millis,PM1.0,PM2.5,PM4.0,PM10,Temperature,Humidity,NC0.5,NC1.0,NC2.5,NC4.0,NC10,TypicalParticleSize,TVOC,eCO2,BatteryVIN\n");
+	length = sprintf(header, "Counter,Latitude,Longitude,gpsUpdated,Speed,Altitude,Satellites,Date,Time,Millis,PM1.0,PM2.5,PM4.0,PM10,Temperature,Humidity,NC0.5,NC1.0,NC2.5,NC4.0,NC10,TypicalParticleSize,TVOC,eCO2,BatteryVIN,UID\n");
 	if (f_write(&fil, header, length, &bytesWrote) != FR_OK) return -1;
 
 	//Close the file after writing
@@ -445,6 +468,10 @@ int main(void)
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 
+  updateADC(); // if battery voltage is too low, prevent boot
+  initDisplay();
+  if (batteryVoltage < 2.75f) while(1) lowBatteryDisplay();
+
   HAL_GPIO_WritePin(GPIOA, BT_RESET_Pin, GPIO_PIN_SET);
   HAL_Delay(50);
   GPS_Init();
@@ -456,16 +483,12 @@ int main(void)
   SPS30_start_measurement();
   HAL_Delay(50);
   initDisplay();
-  millis = HAL_GetTick();
   welcomeDisplay();
   HAL_Delay(50);
   SPS30_read_serialnumber();
   HAL_Delay(50);
   renameBT();
   SPS30_clean_fan();
-//  while (HAL_GetTick()-millis < 10000) {
-//	  HAL_Delay(10); // show init screen for 5s
-//  }
 
   //Mount the file system
   f_mount(&FatFs, "", 1);
@@ -484,6 +507,8 @@ int main(void)
     /* USER CODE BEGIN 3 */
 
 	  /* Read all the sensors */
+//	  KX023_read_tilt();
+
 	  SPS30_start_measurement();
 	  HAL_Delay(100);
 	  SPS30_read_data();
@@ -501,11 +526,12 @@ int main(void)
 	  uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
 			  "%.1f,%.1f,%d,%d,%.0f,%d," // speed, alt, sat, date, time, millis
 			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f," // pm1, pm25, pm4, pm10, t, rh
-			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%d,%d,%.2f\n", // nc0.5, nc1.0, nc2.5, nc4.0, nc10, psize, tvoc, eco2, vbat
+			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%d,%d,%.2f,%c%c%c\n", // nc0.5, nc1.0, nc2.5, nc4.0, nc10, psize, tvoc, eco2, vbat
 			  counter, GPS.GPGGA.LatitudeDecimal, GPS.GPGGA.LongitudeDecimal, GPS.GPGGA.PositionFixIndicator,
 			  GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
 			  SPS30.spsData[0], SPS30.spsData[1], SPS30.spsData[2], SPS30.spsData[3], temp, rh,
-			  SPS30.spsData[4], SPS30.spsData[5], SPS30.spsData[6], SPS30.spsData[7], SPS30.spsData[8], SPS30.spsData[9], 0, 0, batteryVoltage);
+			  SPS30.spsData[4], SPS30.spsData[5], SPS30.spsData[6], SPS30.spsData[7], SPS30.spsData[8], SPS30.spsData[9],
+			  0, 0, batteryVoltage, SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
 
 
 	  /* Send data via BT and COM, save to SD */

@@ -25,6 +25,7 @@ double convertDegMinToDecDeg (float degMin)
 //##################################################################################################################
 void	GPS_Init(void)
 {
+	// Note: GPS_NRST sets the GPS LED, not the reset apparently
 	memset(&GPS.GPGGA,0,sizeof(GPS.GPGGA));  // resets GPGGA to 0
 	GPS.rxIndex=0;
 	HAL_UART_Receive_IT(&_GPS_USART,&GPS.rxTmp,1);	
