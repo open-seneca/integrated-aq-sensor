@@ -208,10 +208,10 @@ void updateDisplay() {
         	  u8g2_SetFont(&u8g2, u8g2_font_profont17_tf);
         	  if (counter%2 == 0) u8g2_DrawStr(&u8g2, 128-24+0, 0, "No SD");
           }
-          else {
+          else { /* we compensate for the board temperature heating by offsetting the shown value by -4C */
               u8g2_SetFont(&u8g2, u8g2_font_logisoso18_tn);
         	  u8g2_DrawStr(&u8g2, 128-50+0, 0, screen_format(round(rh))); // GPS.GPGGA.UTC_Min
-        	  u8g2_DrawStr(&u8g2, 128-20+0, 0, screen_format(round(temp))); // GPS.GPGGA.UTC_Hour
+        	  u8g2_DrawStr(&u8g2, 128-20+0, 0, screen_format(round(temp)-4)); // GPS.GPGGA.UTC_Hour
           }
           u8g2_SetFont(&u8g2, u8g2_font_profont10_tf);
 
@@ -403,7 +403,7 @@ int writeFileHeader() {
 
 	UINT bytesWrote;//Number of bytes written
 	uint8_t details[39];
-	uint8_t length = sprintf(details, "STM32_v0.1,,,SPS30_SN:%s\n", SPS30.serial);
+	uint8_t length = sprintf(details, "STM32_v0.10,,,SPS30_SN:%s\n", SPS30.serial);
 	if (f_write(&fil, details, length, &bytesWrote) != FR_OK) return -1;
 
 	uint8_t header[195];
@@ -524,7 +524,7 @@ int main(void)
 
 	  /* Format output data string */
 	  uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
-			  "%.1f,%.1f,%d,%d,%.0f,%d," // speed, alt, sat, date, time, millis
+			  "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
 			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f," // pm1, pm25, pm4, pm10, t, rh
 			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%d,%d,%.2f,%c%c%c\n", // nc0.5, nc1.0, nc2.5, nc4.0, nc10, psize, tvoc, eco2, vbat
 			  counter, GPS.GPGGA.LatitudeDecimal, GPS.GPGGA.LongitudeDecimal, GPS.GPGGA.PositionFixIndicator,

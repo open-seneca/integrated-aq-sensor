@@ -1,4 +1,4 @@
-02:37:29 **** Incremental Build of configuration Debug for project Firmware ****
+14:04:31 **** Incremental Build of configuration Debug for project Firmware ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/App -I../FATFS/Target -I../Middlewares/Third_Party/FatFs/src -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I"C:/Users/Sebastian/OneDrive - University of Cambridge/University/open-seneca/Hardware/integrated-aq-sensor/Firmware" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
@@ -150,7 +150,7 @@ In file included from ../FATFS/App/fatfs.h:26,
   242 | FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);    /* Open or create a file */
       |                          ~~~~~~~~~~~~~^~~~
 ../Core/Src/main.c:406:27: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  406 |  uint8_t length = sprintf(details, "STM32_v0.1,,,SPS30_SN:%s\n", SPS30.serial);
+  406 |  uint8_t length = sprintf(details, "STM32_v0.10,,,SPS30_SN:%s\n", SPS30.serial);
       |                           ^~~~~~~
       |                           |
       |                           uint8_t * {aka unsigned char *}
@@ -195,7 +195,7 @@ c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externalt
       |                                                                                      |
       |                                                                                      uint32_t {aka long unsigned int}
 ../Core/Src/main.c:527:21: note: format string is defined here
-  527 |      "%.1f,%.1f,%d,%d,%.0f,%d," // speed, alt, sat, date, time, millis
+  527 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
       |                    ~^
       |                     |
       |                     int
@@ -208,12 +208,12 @@ c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externalt
       |                                                                                                                   ~~~~~~
       |                                                                                                                   |
       |                                                                                                                   uint32_t {aka long unsigned int}
-../Core/Src/main.c:527:29: note: format string is defined here
-  527 |      "%.1f,%.1f,%d,%d,%.0f,%d," // speed, alt, sat, date, time, millis
-      |                            ~^
-      |                             |
-      |                             int
-      |                            %ld
+../Core/Src/main.c:527:31: note: format string is defined here
+  527 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
+      |                              ~^
+      |                               |
+      |                               int
+      |                              %ld
 ../Core/Src/main.c:539:4: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
   539 |    CDC_Transmit_FS(data, length); // required for COM port
       |    ^~~~~~~~~~~~~~~
@@ -243,10 +243,10 @@ c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externalt
 ../Core/Src/main.c:416:1: warning: control reaches end of non-void function [-Wreturn-type]
   416 | }
       | ^
-../Core/Src/main.c:406:19: warning: '%s' directive writing up to 31 bytes into a region of size 17 [-Wformat-overflow=]
-  406 |  uint8_t length = sprintf(details, "STM32_v0.1,,,SPS30_SN:%s\n", SPS30.serial);
-      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-../Core/Src/main.c:406:19: note: 'sprintf' output between 24 and 55 bytes into a destination of size 39
+../Core/Src/main.c:406:19: warning: '%s' directive writing up to 31 bytes into a region of size 16 [-Wformat-overflow=]
+  406 |  uint8_t length = sprintf(details, "STM32_v0.10,,,SPS30_SN:%s\n", SPS30.serial);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:406:19: note: 'sprintf' output between 25 and 56 bytes into a destination of size 39
 ../Core/Src/main.c:410:11: warning: 'Counter,Latitude,Longitude,g...' directive writing 199 bytes into a region of size 195 [-Wformat-overflow=]
   410 |  length = sprintf(header, "Counter,Latitude,Longitude,gpsUpdated,Speed,Altitude,Satellites,Date,Time,Millis,PM1.0,PM2.5,PM4.0,PM10,Temperature,Humidity,NC0.5,NC1.0,NC2.5,NC4.0,NC10,TypicalParticleSize,TVOC,eCO2,BatteryVIN,UID\n");
       |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -258,7 +258,7 @@ arm-none-eabi-size   Firmware.elf
 arm-none-eabi-objdump -h -S  Firmware.elf  > "Firmware.list"
 arm-none-eabi-objcopy  -O binary  Firmware.elf  "Firmware.bin"
    text	   data	    bss	    dec	    hex	filename
- 103552	    892	  13728	 118172	  1cd9c	Firmware.elf
+ 103568	    892	  13728	 118188	  1cdac	Firmware.elf
 Finished building: default.size.stdout
  
 Finished building: Firmware.bin
@@ -268,5 +268,5 @@ Finished building: Firmware.list
 arm-none-eabi-objcopy -O ihex Firmware.elf Firmware.hex
  
 
-02:37:31 Build Finished. 0 errors, 28 warnings. (took 2s.173ms)
+14:04:33 Build Finished. 0 errors, 28 warnings. (took 2s.249ms)
 
