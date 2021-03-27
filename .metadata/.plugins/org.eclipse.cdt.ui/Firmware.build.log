@@ -1,4 +1,4 @@
-14:04:31 **** Incremental Build of configuration Debug for project Firmware ****
+14:18:00 **** Incremental Build of configuration Debug for project Firmware ****
 make -j12 all 
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/App -I../FATFS/Target -I../Middlewares/Third_Party/FatFs/src -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I"C:/Users/Sebastian/OneDrive - University of Cambridge/University/open-seneca/Hardware/integrated-aq-sensor/Firmware" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
 ../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
@@ -174,8 +174,8 @@ c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externalt
   244 | int sprintf (char *__restrict, const char *__restrict, ...)
       |              ^
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:526:29: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  526 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+../Core/Src/main.c:527:29: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  527 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
       |                             ^~~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -186,39 +186,39 @@ In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
 c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   244 | int sprintf (char *__restrict, const char *__restrict, ...)
       |              ^
-../Core/Src/main.c:526:35: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  526 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+../Core/Src/main.c:527:35: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  527 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
       |                                   ^~~~~~~~~~~~~~
 ......
-  531 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
+  532 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
       |                                                                             ~~~~~~~~~~~~~~~~~~
       |                                                                                      |
       |                                                                                      uint32_t {aka long unsigned int}
-../Core/Src/main.c:527:21: note: format string is defined here
-  527 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
+../Core/Src/main.c:528:21: note: format string is defined here
+  528 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
       |                    ~^
       |                     |
       |                     int
       |                    %ld
-../Core/Src/main.c:526:35: warning: format '%d' expects argument of type 'int', but argument 12 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  526 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+../Core/Src/main.c:527:35: warning: format '%d' expects argument of type 'int', but argument 12 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  527 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
       |                                   ^~~~~~~~~~~~~~
 ......
-  531 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
+  532 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
       |                                                                                                                   ~~~~~~
       |                                                                                                                   |
       |                                                                                                                   uint32_t {aka long unsigned int}
-../Core/Src/main.c:527:31: note: format string is defined here
-  527 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
+../Core/Src/main.c:528:31: note: format string is defined here
+  528 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
       |                              ~^
       |                               |
       |                               int
       |                              %ld
-../Core/Src/main.c:539:4: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
-  539 |    CDC_Transmit_FS(data, length); // required for COM port
+../Core/Src/main.c:540:4: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  540 |    CDC_Transmit_FS(data, length); // required for COM port
       |    ^~~~~~~~~~~~~~~
-../Core/Src/main.c:541:17: warning: passing argument 1 of 'saveToSD' from incompatible pointer type [-Wincompatible-pointer-types]
-  541 |    if (saveToSD(&data, length) == -1) noSD = 1;
+../Core/Src/main.c:542:17: warning: passing argument 1 of 'saveToSD' from incompatible pointer type [-Wincompatible-pointer-types]
+  542 |    if (saveToSD(&data, length) == -1) noSD = 1;
       |                 ^~~~~
       |                 |
       |                 uint8_t (*)[164] {aka unsigned char (*)[164]}
@@ -268,5 +268,5 @@ Finished building: Firmware.list
 arm-none-eabi-objcopy -O ihex Firmware.elf Firmware.hex
  
 
-14:04:33 Build Finished. 0 errors, 28 warnings. (took 2s.249ms)
+14:18:03 Build Finished. 0 errors, 28 warnings. (took 2s.858ms)
 

@@ -468,6 +468,7 @@ int main(void)
   MX_FATFS_Init();
   /* USER CODE BEGIN 2 */
 
+  HAL_Delay(50);
   updateADC(); // if battery voltage is too low, prevent boot
   initDisplay();
   if (batteryVoltage < 2.75f) while(1) lowBatteryDisplay();
@@ -509,8 +510,8 @@ int main(void)
 	  /* Read all the sensors */
 //	  KX023_read_tilt();
 
-	  SPS30_start_measurement();
-	  HAL_Delay(100);
+//	  SPS30_start_measurement();
+//	  HAL_Delay(100);
 	  SPS30_read_data();
 	  /* Show boot screen until values first become none-zero */
 	  while (SPS30.spsData[1] == 0) {
