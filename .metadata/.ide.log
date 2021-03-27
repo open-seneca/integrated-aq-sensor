@@ -783,3 +783,7 @@
 2021-03-26 00:45:13,203 [INFO] ProjectBuilder:2687 - Suppression de : usb_device.h
 2021-03-26 00:45:13,203 [INFO] ProjectBuilder:2687 - Suppression de : usbd_conf.c
 2021-03-26 00:45:13,204 [INFO] ProjectBuilder:2687 - Suppression de : usbd_conf.h
+2021-03-27 12:02:09,322 [INFO] Activator:170 - 
+
+
+2021-03-27 12:02:09,323 [INFO] Activator:171 - !SESSION log4j initialized

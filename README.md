@@ -1,4 +1,4 @@
-[<img src="https://raw.githubusercontent.com/sh969/Open-Seneca/master/documentation/logo.png">](http://open-seneca.org)
+[<img src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/.images/logo.png">](http://open-seneca.org)
 
 Here you find the open-source files and assembly instructions on the 2021 integrated open-seneca air quality sensor.
 
