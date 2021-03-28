@@ -54,6 +54,8 @@ float batteryVoltage;
 float batteryTemperature;
 float temp;
 float rh;
+float comp_t;
+float comp_rh;
 uint16_t counter = 0;
 uint8_t noSD = 1;
 uint32_t millis = 0; // last measurement
@@ -210,8 +212,8 @@ void updateDisplay() {
           }
           else { /* we compensate for the board temperature heating by offsetting the shown value by -4C */
               u8g2_SetFont(&u8g2, u8g2_font_logisoso18_tn);
-        	  u8g2_DrawStr(&u8g2, 128-50+0, 0, screen_format(round(rh))); // GPS.GPGGA.UTC_Min
-        	  u8g2_DrawStr(&u8g2, 128-20+0, 0, screen_format(round(temp)-4)); // GPS.GPGGA.UTC_Hour
+        	  u8g2_DrawStr(&u8g2, 128-50+0, 0, screen_format(round(comp_rh))); // GPS.GPGGA.UTC_Min
+        	  u8g2_DrawStr(&u8g2, 128-20+0, 0, screen_format(round(comp_t))); // GPS.GPGGA.UTC_Hour
           }
           u8g2_SetFont(&u8g2, u8g2_font_profont10_tf);
 
@@ -286,6 +288,20 @@ int SHTC3_read_data() { // for sht21
 
 	  return 1;
 
+}
+
+float compensateRH(float RH_sensor, float T_sensor, float dT) {
+	float c1 = 17.62;
+	float c2 = 243.12;
+	float c3 = 275.15;
+
+	float T_real = T_sensor + dT;
+
+	return ((c3 + T_real) * RH_sensor * exp( c1 * ((T_sensor/(c2 + T_sensor)) - (T_real/(c2 + T_real))) )) / (c3 + T_sensor);
+}
+
+float compensateT(float T_sensor, float dT) {
+	return T_sensor+dT;
 }
 
 void KX023_read_tilt() {
@@ -407,7 +423,7 @@ int writeFileHeader() {
 	if (f_write(&fil, details, length, &bytesWrote) != FR_OK) return -1;
 
 	uint8_t header[195];
-	length = sprintf(header, "Counter,Latitude,Longitude,gpsUpdated,Speed,Altitude,Satellites,Date,Time,Millis,PM1.0,PM2.5,PM4.0,PM10,Temperature,Humidity,NC0.5,NC1.0,NC2.5,NC4.0,NC10,TypicalParticleSize,TVOC,eCO2,BatteryVIN,UID\n");
+	length = sprintf(header, "Counter,Latitude,Longitude,gpsUpdated,Speed,Altitude,Satellites,Date,Time,Millis,PM1.0,PM2.5,PM4.0,PM10,Temperature,Humidity,NC0.5,NC1.0,NC2.5,NC4.0,NC10,TypicalParticleSize,TVOC,eCO2,BatteryVIN,compensatedT,compensatedRH,UID\n");
 	if (f_write(&fil, header, length, &bytesWrote) != FR_OK) return -1;
 
 	//Close the file after writing
@@ -520,19 +536,21 @@ int main(void)
 	  }
 	  HAL_Delay(50);
 	  SHTC3_read_data();
+	  comp_t = compensateT(temp, -4);
+	  comp_rh = compensateRH(rh, temp, -4);
 	  updateADC();
 	  millis = HAL_GetTick();
 
 	  /* Format output data string */
 	  uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
 			  "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
-			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f," // pm1, pm25, pm4, pm10, t, rh
-			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%d,%d,%.2f,%c%c%c\n", // nc0.5, nc1.0, nc2.5, nc4.0, nc10, psize, tvoc, eco2, vbat
+			  "%.2f,%.2f,%.2f,%.2f,%.1f,%.1f," // pm1, pm25, pm4, pm10, t, rh
+			  "%.2f,%.2f,%.2f,%.2f,%.2f,%.2f,%d,%d,%.2f,%.1f,%.1f,%c%c%c\n", // nc0.5, nc1.0, nc2.5, nc4.0, nc10, psize, tvoc, eco2, vbat
 			  counter, GPS.GPGGA.LatitudeDecimal, GPS.GPGGA.LongitudeDecimal, GPS.GPGGA.PositionFixIndicator,
 			  GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
 			  SPS30.spsData[0], SPS30.spsData[1], SPS30.spsData[2], SPS30.spsData[3], temp, rh,
 			  SPS30.spsData[4], SPS30.spsData[5], SPS30.spsData[6], SPS30.spsData[7], SPS30.spsData[8], SPS30.spsData[9],
-			  0, 0, batteryVoltage, SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
+			  0, 0, batteryVoltage, comp_t, comp_rh, SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
 
 
 	  /* Send data via BT and COM, save to SD */
