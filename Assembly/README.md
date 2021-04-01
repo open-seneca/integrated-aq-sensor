@@ -20,3 +20,5 @@
 9) Attach the Sensirion sensor to the transparent lid using double sided tape (provided). The footprint position for the sensor is indicated as a white line on the PCB. Close the lid and make sure you do not trap any cables.  
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/9.jpg">
 10) Finally, fix the self-adhesive bike mount piece centrally on the outside of the transparent lid.
+
+Note: Your sensor will come with a colourful sticker to attach to the display side. We advise to turn on the sensor first and align the sticker window with the display area :)
