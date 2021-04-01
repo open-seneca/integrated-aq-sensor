@@ -8,9 +8,12 @@
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/5a.jpg">
 5) Lock the SD card into place by pushing the frame horizontally until you hear a click.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4a.jpg"> <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4b.jpg"> <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4c.jpg">
-6) 
+6) Now, screw down the PCB with 4 nylon/plastic M3 screws provided. If you were supplied with metal screws (as shown in this photo) use only 3 screws and leave out the one by the power button.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/5b.jpg">
+7) You can not plug in the Sensirion particulate matter sensor using the provided black 5pin cable.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/6b.jpg">
-<img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7a.jpg">
-<img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7b.jpg">
+8) Prepare the lid by placing the white seal inside the rim and cut off the excess. 
+<img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7a.jpg"> <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7b.jpg">
+9) Attach the Sensirion sensor to the transparent lid using double sided tape (provided). The footprint position for the sensor is indicated as a white line on the PCB. Close the lid and make sure you do not trap any cables.  
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/9.jpg">
+10) Finally, fix the bike mount piece centrally on the outside of the transparent lid using.
