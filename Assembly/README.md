@@ -1,4 +1,4 @@
-!Sensor assembly guide
+# Sensor assembly guide
 1) Lay out all the components in front of you, place the display face down inside the cutout of the grey box.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/1.jpg">
 2) If not provided, deposited double-sided foam adhesive. Then peel off to fix the battery and the GPS antenna. It is important to place the battery and GPS antenna excatly as shown in the photo for the cables to run inside the box!
