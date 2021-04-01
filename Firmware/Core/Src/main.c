@@ -499,7 +499,6 @@ int main(void)
   HAL_Delay(50);
   SPS30_start_measurement();
   HAL_Delay(50);
-  initDisplay();
   welcomeDisplay();
   HAL_Delay(50);
   SPS30_read_serialnumber();
