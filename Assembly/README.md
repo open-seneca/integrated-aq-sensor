@@ -20,7 +20,7 @@ This tutorial will take you through 10 steps to assemble the open-seneca air qua
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/6b.jpg">
 8) Prepare the lid by placing the white seal inside the rim and cut off the excess. 
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7a.jpg"> <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7b.jpg">
-9) Attach the Sensirion sensor to the transparent lid using double sided tape (provided). The footprint position for the sensor is indicated as a white line on the PCB. Close the lid and make sure you do not trap any cables.  
+9) Attach the Sensirion sensor to the transparent lid using double sided tape (provided). The footprint position for the sensor is indicated as a white line on the PCB. Please do *not* peel off the protective film around the Sensirion sensor. Close the lid and make sure you do not trap any cables.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/9.jpg">
 10) Finally, fix the self-adhesive bike mount piece centrally on the outside of the transparent lid.
 
