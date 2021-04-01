@@ -1,4 +1,5 @@
 # Sensor kit assembly guide
+This tutorial will take you through 10 steps to assemble the open-seneca air quality sensor kit. **For our video guide please click here: https://youtu.be/tqcllXC5pL0.**
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/index.jpg">
 1) Lay out all the components in front of you, place the display face down inside the cutout of the grey box.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/1.jpg">
@@ -23,4 +24,4 @@
 10) Finally, fix the self-adhesive bike mount piece centrally on the outside of the transparent lid.
 
 
-*Note: Your sensor will come with a colourful sticker to attach to the display side. We advise to turn on the sensor first and align the sticker window with the display area :)*
+**Note: Your sensor will come with a colourful sticker to attach to the display side. We advise to turn on the sensor first and align the sticker window with the display area :)**
