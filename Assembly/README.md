@@ -1,3 +1,4 @@
+!Sensor assembly guide
 1) Lay out all the components in front of you, place the display face down inside the cutout of the grey box.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/1.jpg">
 2) If not provided, deposited double-sided foam adhesive. Then peel off to fix the battery and the GPS antenna. It is important to place the battery and GPS antenna excatly as shown in the photo for the cables to run inside the box!
@@ -16,4 +17,4 @@
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7a.jpg"> <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7b.jpg">
 9) Attach the Sensirion sensor to the transparent lid using double sided tape (provided). The footprint position for the sensor is indicated as a white line on the PCB. Close the lid and make sure you do not trap any cables.  
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/9.jpg">
-10) Finally, fix the bike mount piece centrally on the outside of the transparent lid using.
+10) Finally, fix the self-adhesive bike mount piece centrally on the outside of the transparent lid.
