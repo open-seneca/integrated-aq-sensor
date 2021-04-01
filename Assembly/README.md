@@ -8,7 +8,9 @@
 4) You can now press the power button to check if the display turns on.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/5a.jpg">
 5) Lock the SD card into place by pushing the frame horizontally until you hear a click.
-<img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4a.jpg"/> <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4b.jpg"/> <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4c.jpg">
+  <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4a.jpg"> 
+  <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4b.jpg"> 
+  <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4c.jpg">
 6) Now, screw down the PCB with 4 nylon/plastic M3 screws provided. If you were supplied with metal screws (as shown in this photo) use only 3 screws and leave out the one by the power button.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/5b.jpg">
 7) You can not plug in the Sensirion particulate matter sensor using the provided black 5pin cable.
