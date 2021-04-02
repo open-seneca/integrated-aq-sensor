@@ -26,6 +26,7 @@ uint8_t CalcCrc(uint8_t data[2]) {
 void SPS30_start_measurement(void){
 	uint8_t arg[2] = {0x03, 0x00};
 	uint8_t txBuf[5] = {0x00, 0x10, 0x03, 0x00, CalcCrc(arg)};
+	memset(&SPS30.spsData,0,sizeof(SPS30.spsData));
 	HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 5, HAL_MAX_DELAY);
 
 }
@@ -37,7 +38,7 @@ void SPS30_stop_measurement(void){
 }
 
 //##################################################################################################################
-void SPS30_read_data(void){
+uint8_t SPS30_read_data(){
 	uint8_t txBuf[2] = {0x03, 0x00};
 	uint8_t rxBuf[60];
 	HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
@@ -50,6 +51,8 @@ void SPS30_read_data(void){
 		uint32_t value = (b1<<24)|(b2<<16)|(b3<<8)|(b4<<0); // merge bytes in correct order
 		SPS30.spsData[i] = *(float*)&value; // convert to float
 	}
+	if (status == HAL_OK && SPS30.spsData[1] > 0.0f) return 1;
+	return 0;
 }
 
 //##################################################################################################################

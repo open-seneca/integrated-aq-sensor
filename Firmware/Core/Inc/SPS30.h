@@ -17,7 +17,7 @@ extern SPS30_t SPS30;
 uint8_t CalcCrc(uint8_t data[2]);
 void SPS30_start_measurement(void);
 void SPS30_stop_measurement(void);
-void SPS30_read_data(void);
+uint8_t SPS30_read_data(void);
 uint8_t SPS30_data_ready(void);
 void SPS30_clean_fan(void);
 void SPS30_get_serial(void);

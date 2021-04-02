@@ -1,12 +1,216 @@
-01:30:13 **** Incremental Build of configuration Debug for project Firmware ****
+02:07:05 **** Incremental Build of configuration Debug for project Firmware ****
 make -j12 all 
+arm-none-eabi-gcc "../Core/Src/SPS30.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/App -I../FATFS/Target -I../Middlewares/Third_Party/FatFs/src -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/SPS30.d" -MT"Core/Src/SPS30.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/SPS30.o"
 arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/App -I../FATFS/Target -I../Middlewares/Third_Party/FatFs/src -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I"C:/Users/Sebastian/OneDrive - University of Cambridge/University/open-seneca/Hardware/integrated-aq-sensor/Firmware" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/SPS30.c: In function 'SPS30_start_measurement':
+../Core/Src/SPS30.c:29:2: warning: implicit declaration of function 'memset' [-Wimplicit-function-declaration]
+   29 |  memset(&SPS30.spsData,0,sizeof(SPS30.spsData));
+      |  ^~~~~~
+../Core/Src/SPS30.c:29:2: warning: incompatible implicit declaration of built-in function 'memset'
+../Core/Src/SPS30.c:4:1: note: include '<string.h>' or provide a declaration of 'memset'
+    3 | #include "i2c.h"
+  +++ |+#include <string.h>
+    4 | #include <stdio.h>
+../Core/Src/SPS30.c:30:84: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   30 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 5, HAL_MAX_DELAY);
+      |                                                                                    ^~~~~~
+      |                                                                                    |
+      |                                                                                    uint8_t (*)[5] {aka unsigned char (*)[5]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[5]' {aka 'unsigned char (*)[5]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:30:20: warning: unused variable 'status' [-Wunused-variable]
+   30 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 5, HAL_MAX_DELAY);
+      |                    ^~~~~~
+../Core/Src/SPS30.c: In function 'SPS30_stop_measurement':
+../Core/Src/SPS30.c:37:84: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   37 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                                                                                    ^~~~~~
+      |                                                                                    |
+      |                                                                                    uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:37:20: warning: unused variable 'status' [-Wunused-variable]
+   37 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                    ^~~~~~
+../Core/Src/SPS30.c: In function 'SPS30_read_data':
+../Core/Src/SPS30.c:44:84: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   44 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                                                                                    ^~~~~~
+      |                                                                                    |
+      |                                                                                    uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:45:65: warning: passing argument 3 of 'HAL_I2C_Master_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+   45 |  status = HAL_I2C_Master_Receive(&_SPS30_I2C, (_SPS30_addr<<1), &rxBuf, sizeof(rxBuf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~
+      |                                                                 |
+      |                                                                 uint8_t (*)[60] {aka unsigned char (*)[60]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:568:97: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[60]' {aka 'unsigned char (*)[60]'}
+  568 | HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                        ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c: In function 'SPS30_data_ready':
+../Core/Src/SPS30.c:62:84: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   62 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                                                                                    ^~~~~~
+      |                                                                                    |
+      |                                                                                    uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:63:65: warning: passing argument 3 of 'HAL_I2C_Master_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+   63 |  status = HAL_I2C_Master_Receive(&_SPS30_I2C, (_SPS30_addr<<1), &rxBuf, sizeof(rxBuf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~
+      |                                                                 |
+      |                                                                 uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:568:97: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  568 | HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                        ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:62:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+   62 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                    ^~~~~~
+../Core/Src/SPS30.c: In function 'SPS30_clean_fan':
+../Core/Src/SPS30.c:70:85: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   70 |   HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                                                                                     ^~~~~~
+      |                                                                                     |
+      |                                                                                     uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:70:21: warning: unused variable 'status' [-Wunused-variable]
+   70 |   HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                     ^~~~~~
+../Core/Src/SPS30.c: In function 'SPS30_get_serial':
+../Core/Src/SPS30.c:77:84: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   77 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                                                                                    ^~~~~~
+      |                                                                                    |
+      |                                                                                    uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:79:65: warning: passing argument 3 of 'HAL_I2C_Master_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+   79 |  status = HAL_I2C_Master_Receive(&_SPS30_I2C, (_SPS30_addr<<1), &spsSerial, sizeof(spsSerial), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~~~~~
+      |                                                                 |
+      |                                                                 uint8_t (*)[32] {aka unsigned char (*)[32]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:568:97: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[32]' {aka 'unsigned char (*)[32]'}
+  568 | HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                        ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:77:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+   77 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                    ^~~~~~
+../Core/Src/SPS30.c: In function 'SPS30_reset':
+../Core/Src/SPS30.c:85:85: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   85 |   HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                                                                                     ^~~~~~
+      |                                                                                     |
+      |                                                                                     uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:85:21: warning: unused variable 'status' [-Wunused-variable]
+   85 |   HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                     ^~~~~~
+../Core/Src/SPS30.c: In function 'SPS30_read_serialnumber':
+../Core/Src/SPS30.c:93:84: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+   93 |  HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&_SPS30_I2C, (_SPS30_addr<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                                                                                    ^~~~~~
+      |                                                                                    |
+      |                                                                                    uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:94:65: warning: passing argument 3 of 'HAL_I2C_Master_Receive' from incompatible pointer type [-Wincompatible-pointer-types]
+   94 |  status = HAL_I2C_Master_Receive(&_SPS30_I2C, (_SPS30_addr<<1), &rxBuf, sizeof(rxBuf), HAL_MAX_DELAY);
+      |                                                                 ^~~~~~
+      |                                                                 |
+      |                                                                 uint8_t (*)[48] {aka unsigned char (*)[48]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Inc/i2c.h:28,
+                 from ../Core/Src/SPS30.c:3:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:568:97: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[48]' {aka 'unsigned char (*)[48]'}
+  568 | HAL_StatusTypeDef HAL_I2C_Master_Receive(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                        ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:96:16: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+   96 |   sprintf(SPS30.serial, "AQ-SENSOR");
+      |           ~~~~~^~~~~~~
+      |                |
+      |                uint8_t * {aka unsigned char *}
 ../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
 ../Core/Src/main.c:99:52: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
    99 |  if (huart == &huart1) HAL_UART_Receive_IT(&huart1,&readBuf,1);
       |                                                    ^~~~~~~~
       |                                                    |
       |                                                    BYTE (*)[30] {aka unsigned char (*)[30]}
+In file included from ../Core/Inc/SPS30.h:4,
+                 from ../Core/Src/SPS30.c:2:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/SPS30.c:104:12: warning: 'return' with a value, in function returning void [-Wreturn-type]
+  104 |     return 0;
+      |            ^
 In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
                  from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
                  from ../Core/Inc/main.h:31,
@@ -14,6 +218,9 @@ In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
 ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:724:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'BYTE (*)[30]' {aka 'unsigned char (*)[30]'}
   724 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
       |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/SPS30.c:90:6: note: declared here
+   90 | void SPS30_read_serialnumber(void){
+      |      ^~~~~~~~~~~~~~~~~~~~~~~
 ../Core/Src/main.c: In function 'SHTC3_read_data':
 ../Core/Src/main.c:263:74: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
   263 |    HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&hi2c1, (0x70<<1), &txBuf, 2, HAL_MAX_DELAY);
@@ -174,8 +381,8 @@ c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externalt
   244 | int sprintf (char *__restrict, const char *__restrict, ...)
       |              ^
 ../Core/Src/main.c: In function 'main':
-../Core/Src/main.c:544:29: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
-  544 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+../Core/Src/main.c:538:29: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  538 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
       |                             ^~~~
       |                             |
       |                             uint8_t * {aka unsigned char *}
@@ -186,39 +393,39 @@ In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
 c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
   244 | int sprintf (char *__restrict, const char *__restrict, ...)
       |              ^
-../Core/Src/main.c:544:35: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  544 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+../Core/Src/main.c:538:35: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  538 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
       |                                   ^~~~~~~~~~~~~~
 ......
-  549 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
+  543 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
       |                                                                             ~~~~~~~~~~~~~~~~~~
       |                                                                                      |
       |                                                                                      uint32_t {aka long unsigned int}
-../Core/Src/main.c:545:21: note: format string is defined here
-  545 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
+../Core/Src/main.c:539:21: note: format string is defined here
+  539 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
       |                    ~^
       |                     |
       |                     int
       |                    %ld
-../Core/Src/main.c:544:35: warning: format '%d' expects argument of type 'int', but argument 12 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
-  544 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+../Core/Src/main.c:538:35: warning: format '%d' expects argument of type 'int', but argument 12 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  538 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
       |                                   ^~~~~~~~~~~~~~
 ......
-  549 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
+  543 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
       |                                                                                                                   ~~~~~~
       |                                                                                                                   |
       |                                                                                                                   uint32_t {aka long unsigned int}
-../Core/Src/main.c:545:31: note: format string is defined here
-  545 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
+../Core/Src/main.c:539:31: note: format string is defined here
+  539 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
       |                              ~^
       |                               |
       |                               int
       |                              %ld
-../Core/Src/main.c:557:4: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
-  557 |    CDC_Transmit_FS(data, length); // required for COM port
+../Core/Src/main.c:551:4: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  551 |    CDC_Transmit_FS(data, length); // required for COM port
       |    ^~~~~~~~~~~~~~~
-../Core/Src/main.c:559:17: warning: passing argument 1 of 'saveToSD' from incompatible pointer type [-Wincompatible-pointer-types]
-  559 |    if (saveToSD(&data, length) == -1) noSD = 1;
+../Core/Src/main.c:553:17: warning: passing argument 1 of 'saveToSD' from incompatible pointer type [-Wincompatible-pointer-types]
+  553 |    if (saveToSD(&data, length) == -1) noSD = 1;
       |                 ^~~~~
       |                 |
       |                 uint8_t (*)[164] {aka unsigned char (*)[164]}
@@ -258,7 +465,7 @@ arm-none-eabi-size   Firmware.elf
 arm-none-eabi-objdump -h -S  Firmware.elf  > "Firmware.list"
 arm-none-eabi-objcopy  -O binary  Firmware.elf  "Firmware.bin"
    text	   data	    bss	    dec	    hex	filename
- 104984	    892	  13736	 119612	  1d33c	Firmware.elf
+ 105000	    892	  13736	 119628	  1d34c	Firmware.elf
 Finished building: default.size.stdout
  
 Finished building: Firmware.bin
@@ -268,5 +475,5 @@ Finished building: Firmware.list
 arm-none-eabi-objcopy -O ihex Firmware.elf Firmware.hex
  
 
-01:30:15 Build Finished. 0 errors, 28 warnings. (took 2s.183ms)
+02:07:07 Build Finished. 0 errors, 50 warnings. (took 2s.184ms)
 

@@ -525,14 +525,8 @@ int main(void)
 	  /* Read all the sensors */
 //	  KX023_read_tilt();
 
-//	  SPS30_start_measurement();
-//	  HAL_Delay(100);
-	  SPS30_read_data();
 	  /* Show boot screen until values first become none-zero */
-	  while (SPS30.spsData[1] == 0) {
-		  HAL_Delay(100);
-		  SPS30_read_data();
-	  }
+	  while (SPS30_read_data() != 1) HAL_Delay(100);
 	  HAL_Delay(50);
 	  SHTC3_read_data();
 	  comp_t = compensateT(temp, -4);
