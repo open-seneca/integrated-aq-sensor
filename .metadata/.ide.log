@@ -809,3 +809,9 @@
 
 
 2021-03-28 23:36:57,624 [INFO] Activator:171 - !SESSION log4j initialized
+2021-04-02 01:26:40,396 [INFO] Activator:170 - 
+
+
+2021-04-02 01:26:40,397 [INFO] Activator:171 - !SESSION log4j initialized
+2021-04-02 01:27:12,327 [INFO] RetryExec:97 - I/O exception (org.apache.http.NoHttpResponseException) caught when processing request to {s}->https://sw-center.st.com:443: The target server failed to respond
+2021-04-02 01:27:12,328 [INFO] RetryExec:113 - Retrying request to {s}->https://sw-center.st.com:443

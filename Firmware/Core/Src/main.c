@@ -486,8 +486,10 @@ int main(void)
 
   HAL_Delay(50);
   updateADC(); // if battery voltage is too low, prevent boot
+  HAL_Delay(50);
   initDisplay();
   if (batteryVoltage < 2.75f) while(1) lowBatteryDisplay();
+  welcomeDisplay();
 
   HAL_GPIO_WritePin(GPIOA, BT_RESET_Pin, GPIO_PIN_SET);
   HAL_Delay(50);
@@ -498,8 +500,6 @@ int main(void)
   MX_I2C2_Init(); // reset i2c2 again (needed for it to work!)
   HAL_Delay(50);
   SPS30_start_measurement();
-  HAL_Delay(50);
-  welcomeDisplay();
   HAL_Delay(50);
   SPS30_read_serialnumber();
   HAL_Delay(50);

@@ -23303,3 +23303,541 @@ Finished building: Firmware.list
  
 arm-none-eabi-objcopy -O ihex Firmware.elf Firmware.hex
  
+01:28:24 **** Incremental Build of configuration Debug for project Firmware ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/App -I../FATFS/Target -I../Middlewares/Third_Party/FatFs/src -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I"C:/Users/Sebastian/OneDrive - University of Cambridge/University/open-seneca/Hardware/integrated-aq-sensor/Firmware" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:99:52: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+   99 |  if (huart == &huart1) HAL_UART_Receive_IT(&huart1,&readBuf,1);
+      |                                                    ^~~~~~~~
+      |                                                    |
+      |                                                    BYTE (*)[30] {aka unsigned char (*)[30]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:724:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'BYTE (*)[30]' {aka 'unsigned char (*)[30]'}
+  724 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'SHTC3_read_data':
+../Core/Src/main.c:263:74: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  263 |    HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&hi2c1, (0x70<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                                                                          ^~~~~~
+      |                                                                          |
+      |                                                                          uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'KX023_read_tilt':
+../Core/Src/main.c:316:58: warning: passing argument 5 of 'HAL_I2C_Mem_Read' from incompatible pointer type [-Wincompatible-pointer-types]
+  316 |  status = HAL_I2C_Mem_Read(&hi2c1, (addr << 1), TSPP, 2, &rxBuf, 8, HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+      |                                                          |
+      |                                                          uint8_t (*)[8] {aka unsigned char (*)[8]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:572:133: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[8]' {aka 'unsigned char (*)[8]'}
+  572 | HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                                                            ~~~~~~~~~^~~~~
+../Core/Src/main.c:317:58: warning: passing argument 5 of 'HAL_I2C_Mem_Read' from incompatible pointer type [-Wincompatible-pointer-types]
+  317 |  status = HAL_I2C_Mem_Read(&hi2c1, (addr << 1), 0x00, 2, &rxBuf, 8, HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+      |                                                          |
+      |                                                          uint8_t (*)[8] {aka unsigned char (*)[8]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:572:133: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[8]' {aka 'unsigned char (*)[8]'}
+  572 | HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                                                            ~~~~~~~~~^~~~~
+../Core/Src/main.c:310:11: warning: unused variable 'TSCP' [-Wunused-variable]
+  310 |  uint16_t TSCP = 0x10; // Current Tilt Position Register
+      |           ^~~~
+../Core/Src/main.c:308:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  308 |  HAL_StatusTypeDef status;
+      |                    ^~~~~~
+../Core/Src/main.c: In function 'initRGBLED':
+../Core/Src/main.c:329:2: warning: implicit declaration of function 'setAirLED' [-Wimplicit-function-declaration]
+  329 |  setAirLED(100, 100, 100);
+      |  ^~~~~~~~~
+../Core/Src/main.c:330:2: warning: implicit declaration of function 'setStatLED'; did you mean 'setstate'? [-Wimplicit-function-declaration]
+  330 |  setStatLED(100, 100, 100);
+      |  ^~~~~~~~~~
+      |  setstate
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:334:6: warning: conflicting types for 'setStatLED'
+  334 | void setStatLED(int r, int g, int b) { // values 0-100
+      |      ^~~~~~~~~~
+../Core/Src/main.c:330:2: note: previous implicit declaration of 'setStatLED' was here
+  330 |  setStatLED(100, 100, 100);
+      |  ^~~~~~~~~~
+../Core/Src/main.c:342:6: warning: conflicting types for 'setAirLED'
+  342 | void setAirLED(int r, int g, int b) { // values 0-100
+      |      ^~~~~~~~~
+../Core/Src/main.c:329:2: note: previous implicit declaration of 'setAirLED' was here
+  329 |  setAirLED(100, 100, 100);
+      |  ^~~~~~~~~
+../Core/Src/main.c: In function 'renameBT':
+../Core/Src/main.c:363:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  363 |  sprintf(btname, "%s%c%c%c", "OPEN-SENE", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:365:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  365 |  sprintf(btcmd, "%s%s", "AT+NAME", btname);
+      |          ^~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c: In function 'generateFilename':
+../Core/Src/main.c:379:11: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  379 |   sprintf(filename, "%c%c%c%04d.csv", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15], filenumber);
+      |           ^~~~~~~~
+      |           |
+      |           uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:380:22: warning: pointer targets in passing argument 2 of 'f_open' differ in signedness [-Wpointer-sign]
+  380 |   res = f_open(&fil, filename, FA_READ);
+      |                      ^~~~~~~~
+      |                      |
+      |                      uint8_t * {aka unsigned char *}
+In file included from ../FATFS/App/fatfs.h:26,
+                 from ../Core/Src/main.c:23:
+../Middlewares/Third_Party/FatFs/src/ff.h:242:39: note: expected 'const TCHAR *' {aka 'const char *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  242 | FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);    /* Open or create a file */
+      |                          ~~~~~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'saveToSD':
+../Core/Src/main.c:401:19: warning: pointer targets in passing argument 2 of 'f_open' differ in signedness [-Wpointer-sign]
+  401 |  if (f_open(&fil, filename, FA_WRITE | FA_OPEN_APPEND) != FR_OK) return -1;
+      |                   ^~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../FATFS/App/fatfs.h:26,
+                 from ../Core/Src/main.c:23:
+../Middlewares/Third_Party/FatFs/src/ff.h:242:39: note: expected 'const TCHAR *' {aka 'const char *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  242 | FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);    /* Open or create a file */
+      |                          ~~~~~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'writeFileHeader':
+../Core/Src/main.c:418:19: warning: pointer targets in passing argument 2 of 'f_open' differ in signedness [-Wpointer-sign]
+  418 |  if (f_open(&fil, filename, FA_WRITE | FA_OPEN_APPEND) != FR_OK) return -1;
+      |                   ^~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../FATFS/App/fatfs.h:26,
+                 from ../Core/Src/main.c:23:
+../Middlewares/Third_Party/FatFs/src/ff.h:242:39: note: expected 'const TCHAR *' {aka 'const char *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  242 | FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);    /* Open or create a file */
+      |                          ~~~~~~~~~~~~~^~~~
+../Core/Src/main.c:422:27: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  422 |  uint8_t length = sprintf(details, "STM32_v0.10,,,SPS30_SN:%s\n", SPS30.serial);
+      |                           ^~~~~~~
+      |                           |
+      |                           uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:426:19: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  426 |  length = sprintf(header, "Counter,Latitude,Longitude,gpsUpdated,Speed,Altitude,Satellites,Date,Time,Millis,PM1.0,PM2.5,PM4.0,PM10,Temperature,Humidity,NC0.5,NC1.0,NC2.5,NC4.0,NC10,TypicalParticleSize,TVOC,eCO2,BatteryVIN,compensatedT,compensatedRH,UID\n");
+      |                   ^~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:543:29: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  543 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+      |                             ^~~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:543:35: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  543 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+      |                                   ^~~~~~~~~~~~~~
+......
+  548 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
+      |                                                                             ~~~~~~~~~~~~~~~~~~
+      |                                                                                      |
+      |                                                                                      uint32_t {aka long unsigned int}
+../Core/Src/main.c:544:21: note: format string is defined here
+  544 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
+      |                    ~^
+      |                     |
+      |                     int
+      |                    %ld
+../Core/Src/main.c:543:35: warning: format '%d' expects argument of type 'int', but argument 12 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  543 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+      |                                   ^~~~~~~~~~~~~~
+......
+  548 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
+      |                                                                                                                   ~~~~~~
+      |                                                                                                                   |
+      |                                                                                                                   uint32_t {aka long unsigned int}
+../Core/Src/main.c:544:31: note: format string is defined here
+  544 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
+      |                              ~^
+      |                               |
+      |                               int
+      |                              %ld
+../Core/Src/main.c:556:4: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  556 |    CDC_Transmit_FS(data, length); // required for COM port
+      |    ^~~~~~~~~~~~~~~
+../Core/Src/main.c:558:17: warning: passing argument 1 of 'saveToSD' from incompatible pointer type [-Wincompatible-pointer-types]
+  558 |    if (saveToSD(&data, length) == -1) noSD = 1;
+      |                 ^~~~~
+      |                 |
+      |                 uint8_t (*)[164] {aka unsigned char (*)[164]}
+../Core/Src/main.c:398:23: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[164]' {aka 'unsigned char (*)[164]'}
+  398 | int saveToSD(uint8_t *dBuf, uint8_t dBufLen) {
+      |              ~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'renameBT':
+../Core/Src/main.c:363:27: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  363 |  sprintf(btname, "%s%c%c%c", "OPEN-SENE", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
+      |                           ^
+../Core/Src/main.c:363:2: note: 'sprintf' output 13 bytes into a destination of size 12
+  363 |  sprintf(btname, "%s%c%c%c", "OPEN-SENE", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'generateFilename':
+../Core/Src/main.c:379:36: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  379 |   sprintf(filename, "%c%c%c%04d.csv", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15], filenumber);
+      |                                    ^
+../Core/Src/main.c:379:3: note: 'sprintf' output between 12 and 19 bytes into a destination of size 11
+  379 |   sprintf(filename, "%c%c%c%04d.csv", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15], filenumber);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'writeFileHeader':
+../Core/Src/main.c:432:1: warning: control reaches end of non-void function [-Wreturn-type]
+  432 | }
+      | ^
+../Core/Src/main.c:422:19: warning: '%s' directive writing up to 31 bytes into a region of size 16 [-Wformat-overflow=]
+  422 |  uint8_t length = sprintf(details, "STM32_v0.10,,,SPS30_SN:%s\n", SPS30.serial);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:422:19: note: 'sprintf' output between 25 and 56 bytes into a destination of size 39
+../Core/Src/main.c:426:11: warning: 'Counter,Latitude,Longitude,g...' directive writing 226 bytes into a region of size 195 [-Wformat-overflow=]
+  426 |  length = sprintf(header, "Counter,Latitude,Longitude,gpsUpdated,Speed,Altitude,Satellites,Date,Time,Millis,PM1.0,PM2.5,PM4.0,PM10,Temperature,Humidity,NC0.5,NC1.0,NC2.5,NC4.0,NC10,TypicalParticleSize,TVOC,eCO2,BatteryVIN,compensatedT,compensatedRH,UID\n");
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:426:11: note: 'sprintf' output 227 bytes into a destination of size 195
+arm-none-eabi-gcc -o "Firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Sebastian\OneDrive - University of Cambridge\University\open-seneca\Hardware\integrated-aq-sensor\Firmware\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Firmware.elf
+ 
+arm-none-eabi-size   Firmware.elf 
+arm-none-eabi-objdump -h -S  Firmware.elf  > "Firmware.list"
+arm-none-eabi-objcopy  -O binary  Firmware.elf  "Firmware.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 104976	    892	  13736	 119604	  1d334	Firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: Firmware.bin
+ 
+Finished building: Firmware.list
+ 
+arm-none-eabi-objcopy -O ihex Firmware.elf Firmware.hex
+ 
+01:30:13 **** Incremental Build of configuration Debug for project Firmware ****
+make -j12 all 
+arm-none-eabi-gcc "../Core/Src/main.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DSTM32F405xx -DUSE_HAL_DRIVER -DDEBUG -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -I../FATFS/App -I../FATFS/Target -I../Middlewares/Third_Party/FatFs/src -I../USB_DEVICE/App -I../USB_DEVICE/Target -I../Middlewares/ST/STM32_USB_Device_Library/Core/Inc -I../Middlewares/ST/STM32_USB_Device_Library/Class/CDC/Inc -I"C:/Users/Sebastian/OneDrive - University of Cambridge/University/open-seneca/Hardware/integrated-aq-sensor/Firmware" -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -MMD -MP -MF"Core/Src/main.d" -MT"Core/Src/main.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main.o"
+../Core/Src/main.c: In function 'HAL_UART_RxCpltCallback':
+../Core/Src/main.c:99:52: warning: passing argument 2 of 'HAL_UART_Receive_IT' from incompatible pointer type [-Wincompatible-pointer-types]
+   99 |  if (huart == &huart1) HAL_UART_Receive_IT(&huart1,&readBuf,1);
+      |                                                    ^~~~~~~~
+      |                                                    |
+      |                                                    BYTE (*)[30] {aka unsigned char (*)[30]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:406,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:724:75: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'BYTE (*)[30]' {aka 'unsigned char (*)[30]'}
+  724 | HAL_StatusTypeDef HAL_UART_Receive_IT(UART_HandleTypeDef *huart, uint8_t *pData, uint16_t Size);
+      |                                                                  ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'SHTC3_read_data':
+../Core/Src/main.c:263:74: warning: passing argument 3 of 'HAL_I2C_Master_Transmit' from incompatible pointer type [-Wincompatible-pointer-types]
+  263 |    HAL_StatusTypeDef status = HAL_I2C_Master_Transmit(&hi2c1, (0x70<<1), &txBuf, 2, HAL_MAX_DELAY);
+      |                                                                          ^~~~~~
+      |                                                                          |
+      |                                                                          uint8_t (*)[2] {aka unsigned char (*)[2]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:567:98: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[2]' {aka 'unsigned char (*)[2]'}
+  567 | HAL_StatusTypeDef HAL_I2C_Master_Transmit(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                         ~~~~~~~~~^~~~~
+../Core/Src/main.c: In function 'KX023_read_tilt':
+../Core/Src/main.c:316:58: warning: passing argument 5 of 'HAL_I2C_Mem_Read' from incompatible pointer type [-Wincompatible-pointer-types]
+  316 |  status = HAL_I2C_Mem_Read(&hi2c1, (addr << 1), TSPP, 2, &rxBuf, 8, HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+      |                                                          |
+      |                                                          uint8_t (*)[8] {aka unsigned char (*)[8]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:572:133: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[8]' {aka 'unsigned char (*)[8]'}
+  572 | HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                                                            ~~~~~~~~~^~~~~
+../Core/Src/main.c:317:58: warning: passing argument 5 of 'HAL_I2C_Mem_Read' from incompatible pointer type [-Wincompatible-pointer-types]
+  317 |  status = HAL_I2C_Mem_Read(&hi2c1, (addr << 1), 0x00, 2, &rxBuf, 8, HAL_MAX_DELAY);
+      |                                                          ^~~~~~
+      |                                                          |
+      |                                                          uint8_t (*)[8] {aka unsigned char (*)[8]}
+In file included from ../Core/Inc/stm32f4xx_hal_conf.h:358,
+                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:30,
+                 from ../Core/Inc/main.h:31,
+                 from ../Core/Src/main.c:21:
+../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_i2c.h:572:133: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[8]' {aka 'unsigned char (*)[8]'}
+  572 | HAL_StatusTypeDef HAL_I2C_Mem_Read(I2C_HandleTypeDef *hi2c, uint16_t DevAddress, uint16_t MemAddress, uint16_t MemAddSize, uint8_t *pData, uint16_t Size, uint32_t Timeout);
+      |                                                                                                                            ~~~~~~~~~^~~~~
+../Core/Src/main.c:310:11: warning: unused variable 'TSCP' [-Wunused-variable]
+  310 |  uint16_t TSCP = 0x10; // Current Tilt Position Register
+      |           ^~~~
+../Core/Src/main.c:308:20: warning: variable 'status' set but not used [-Wunused-but-set-variable]
+  308 |  HAL_StatusTypeDef status;
+      |                    ^~~~~~
+../Core/Src/main.c: In function 'initRGBLED':
+../Core/Src/main.c:329:2: warning: implicit declaration of function 'setAirLED' [-Wimplicit-function-declaration]
+  329 |  setAirLED(100, 100, 100);
+      |  ^~~~~~~~~
+../Core/Src/main.c:330:2: warning: implicit declaration of function 'setStatLED'; did you mean 'setstate'? [-Wimplicit-function-declaration]
+  330 |  setStatLED(100, 100, 100);
+      |  ^~~~~~~~~~
+      |  setstate
+../Core/Src/main.c: At top level:
+../Core/Src/main.c:334:6: warning: conflicting types for 'setStatLED'
+  334 | void setStatLED(int r, int g, int b) { // values 0-100
+      |      ^~~~~~~~~~
+../Core/Src/main.c:330:2: note: previous implicit declaration of 'setStatLED' was here
+  330 |  setStatLED(100, 100, 100);
+      |  ^~~~~~~~~~
+../Core/Src/main.c:342:6: warning: conflicting types for 'setAirLED'
+  342 | void setAirLED(int r, int g, int b) { // values 0-100
+      |      ^~~~~~~~~
+../Core/Src/main.c:329:2: note: previous implicit declaration of 'setAirLED' was here
+  329 |  setAirLED(100, 100, 100);
+      |  ^~~~~~~~~
+../Core/Src/main.c: In function 'renameBT':
+../Core/Src/main.c:363:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  363 |  sprintf(btname, "%s%c%c%c", "OPEN-SENE", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
+      |          ^~~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:365:10: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  365 |  sprintf(btcmd, "%s%s", "AT+NAME", btname);
+      |          ^~~~~
+      |          |
+      |          uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c: In function 'generateFilename':
+../Core/Src/main.c:379:11: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  379 |   sprintf(filename, "%c%c%c%04d.csv", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15], filenumber);
+      |           ^~~~~~~~
+      |           |
+      |           uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:380:22: warning: pointer targets in passing argument 2 of 'f_open' differ in signedness [-Wpointer-sign]
+  380 |   res = f_open(&fil, filename, FA_READ);
+      |                      ^~~~~~~~
+      |                      |
+      |                      uint8_t * {aka unsigned char *}
+In file included from ../FATFS/App/fatfs.h:26,
+                 from ../Core/Src/main.c:23:
+../Middlewares/Third_Party/FatFs/src/ff.h:242:39: note: expected 'const TCHAR *' {aka 'const char *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  242 | FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);    /* Open or create a file */
+      |                          ~~~~~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'saveToSD':
+../Core/Src/main.c:401:19: warning: pointer targets in passing argument 2 of 'f_open' differ in signedness [-Wpointer-sign]
+  401 |  if (f_open(&fil, filename, FA_WRITE | FA_OPEN_APPEND) != FR_OK) return -1;
+      |                   ^~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../FATFS/App/fatfs.h:26,
+                 from ../Core/Src/main.c:23:
+../Middlewares/Third_Party/FatFs/src/ff.h:242:39: note: expected 'const TCHAR *' {aka 'const char *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  242 | FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);    /* Open or create a file */
+      |                          ~~~~~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'writeFileHeader':
+../Core/Src/main.c:418:19: warning: pointer targets in passing argument 2 of 'f_open' differ in signedness [-Wpointer-sign]
+  418 |  if (f_open(&fil, filename, FA_WRITE | FA_OPEN_APPEND) != FR_OK) return -1;
+      |                   ^~~~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../FATFS/App/fatfs.h:26,
+                 from ../Core/Src/main.c:23:
+../Middlewares/Third_Party/FatFs/src/ff.h:242:39: note: expected 'const TCHAR *' {aka 'const char *'} but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  242 | FRESULT f_open (FIL* fp, const TCHAR* path, BYTE mode);    /* Open or create a file */
+      |                          ~~~~~~~~~~~~~^~~~
+../Core/Src/main.c:422:27: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  422 |  uint8_t length = sprintf(details, "STM32_v0.10,,,SPS30_SN:%s\n", SPS30.serial);
+      |                           ^~~~~~~
+      |                           |
+      |                           uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:426:19: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  426 |  length = sprintf(header, "Counter,Latitude,Longitude,gpsUpdated,Speed,Altitude,Satellites,Date,Time,Millis,PM1.0,PM2.5,PM4.0,PM10,Temperature,Humidity,NC0.5,NC1.0,NC2.5,NC4.0,NC10,TypicalParticleSize,TVOC,eCO2,BatteryVIN,compensatedT,compensatedRH,UID\n");
+      |                   ^~~~~~
+      |                   |
+      |                   uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c: In function 'main':
+../Core/Src/main.c:544:29: warning: pointer targets in passing argument 1 of 'sprintf' differ in signedness [-Wpointer-sign]
+  544 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+      |                             ^~~~
+      |                             |
+      |                             uint8_t * {aka unsigned char *}
+In file included from ../USB_DEVICE/Target/usbd_conf.h:31,
+                 from ../Middlewares/ST/STM32_USB_Device_Library/Core/Inc/usbd_def.h:29,
+                 from ../USB_DEVICE/App/usb_device.h:33,
+                 from ../Core/Src/main.c:28:
+c:\st\stm32cubeide_1.6.0\stm32cubeide\plugins\com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924\tools\arm-none-eabi\include\stdio.h:244:14: note: expected 'char * restrict' but argument is of type 'uint8_t *' {aka 'unsigned char *'}
+  244 | int sprintf (char *__restrict, const char *__restrict, ...)
+      |              ^
+../Core/Src/main.c:544:35: warning: format '%d' expects argument of type 'int', but argument 10 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  544 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+      |                                   ^~~~~~~~~~~~~~
+......
+  549 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
+      |                                                                             ~~~~~~~~~~~~~~~~~~
+      |                                                                                      |
+      |                                                                                      uint32_t {aka long unsigned int}
+../Core/Src/main.c:545:21: note: format string is defined here
+  545 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
+      |                    ~^
+      |                     |
+      |                     int
+      |                    %ld
+../Core/Src/main.c:544:35: warning: format '%d' expects argument of type 'int', but argument 12 has type 'uint32_t' {aka 'long unsigned int'} [-Wformat=]
+  544 |    uint8_t length = sprintf(data, "%d,%f,%f,%d," // counter, lat, lon, fix
+      |                                   ^~~~~~~~~~~~~~
+......
+  549 |      GPS.GPGGA.Speed_KMH, GPS.GPGGA.MSL_Altitude, GPS.GPGGA.SatellitesUsed, GPS.GPGGA.YYYYMMDD, GPS.GPGGA.HHMMSS, millis,
+      |                                                                                                                   ~~~~~~
+      |                                                                                                                   |
+      |                                                                                                                   uint32_t {aka long unsigned int}
+../Core/Src/main.c:545:31: note: format string is defined here
+  545 |      "%.1f,%.1f,%d,%d,%06.0f,%d," // speed, alt, sat, date, time, millis
+      |                              ~^
+      |                               |
+      |                               int
+      |                              %ld
+../Core/Src/main.c:557:4: warning: implicit declaration of function 'CDC_Transmit_FS' [-Wimplicit-function-declaration]
+  557 |    CDC_Transmit_FS(data, length); // required for COM port
+      |    ^~~~~~~~~~~~~~~
+../Core/Src/main.c:559:17: warning: passing argument 1 of 'saveToSD' from incompatible pointer type [-Wincompatible-pointer-types]
+  559 |    if (saveToSD(&data, length) == -1) noSD = 1;
+      |                 ^~~~~
+      |                 |
+      |                 uint8_t (*)[164] {aka unsigned char (*)[164]}
+../Core/Src/main.c:398:23: note: expected 'uint8_t *' {aka 'unsigned char *'} but argument is of type 'uint8_t (*)[164]' {aka 'unsigned char (*)[164]'}
+  398 | int saveToSD(uint8_t *dBuf, uint8_t dBufLen) {
+      |              ~~~~~~~~~^~~~
+../Core/Src/main.c: In function 'renameBT':
+../Core/Src/main.c:363:27: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  363 |  sprintf(btname, "%s%c%c%c", "OPEN-SENE", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
+      |                           ^
+../Core/Src/main.c:363:2: note: 'sprintf' output 13 bytes into a destination of size 12
+  363 |  sprintf(btname, "%s%c%c%c", "OPEN-SENE", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15]);
+      |  ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'generateFilename':
+../Core/Src/main.c:379:36: warning: 'sprintf' writing a terminating nul past the end of the destination [-Wformat-overflow=]
+  379 |   sprintf(filename, "%c%c%c%04d.csv", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15], filenumber);
+      |                                    ^
+../Core/Src/main.c:379:3: note: 'sprintf' output between 12 and 19 bytes into a destination of size 11
+  379 |   sprintf(filename, "%c%c%c%04d.csv", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15], filenumber);
+      |   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c: In function 'writeFileHeader':
+../Core/Src/main.c:432:1: warning: control reaches end of non-void function [-Wreturn-type]
+  432 | }
+      | ^
+../Core/Src/main.c:422:19: warning: '%s' directive writing up to 31 bytes into a region of size 16 [-Wformat-overflow=]
+  422 |  uint8_t length = sprintf(details, "STM32_v0.10,,,SPS30_SN:%s\n", SPS30.serial);
+      |                   ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:422:19: note: 'sprintf' output between 25 and 56 bytes into a destination of size 39
+../Core/Src/main.c:426:11: warning: 'Counter,Latitude,Longitude,g...' directive writing 226 bytes into a region of size 195 [-Wformat-overflow=]
+  426 |  length = sprintf(header, "Counter,Latitude,Longitude,gpsUpdated,Speed,Altitude,Satellites,Date,Time,Millis,PM1.0,PM2.5,PM4.0,PM10,Temperature,Humidity,NC0.5,NC1.0,NC2.5,NC4.0,NC10,TypicalParticleSize,TVOC,eCO2,BatteryVIN,compensatedT,compensatedRH,UID\n");
+      |           ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+../Core/Src/main.c:426:11: note: 'sprintf' output 227 bytes into a destination of size 195
+arm-none-eabi-gcc -o "Firmware.elf" @"objects.list"   -mcpu=cortex-m4 -T"C:\Users\Sebastian\OneDrive - University of Cambridge\University\open-seneca\Hardware\integrated-aq-sensor\Firmware\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Finished building target: Firmware.elf
+ 
+arm-none-eabi-size   Firmware.elf 
+arm-none-eabi-objdump -h -S  Firmware.elf  > "Firmware.list"
+arm-none-eabi-objcopy  -O binary  Firmware.elf  "Firmware.bin"
+   text	   data	    bss	    dec	    hex	filename
+ 104984	    892	  13736	 119612	  1d33c	Firmware.elf
+Finished building: default.size.stdout
+ 
+Finished building: Firmware.bin
+ 
+Finished building: Firmware.list
+ 
+arm-none-eabi-objcopy -O ihex Firmware.elf Firmware.hex
+ 
