@@ -1,7 +1,9 @@
 # Sensor kit assembly guide
 This tutorial will take you through 10 steps to assemble the open-seneca air quality sensor kit. For our video guide please click here:
 
-<img width="600" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/youtube.png" href="https://youtu.be/tqcllXC5pL0">
+<a href="https://youtu.be/tqcllXC5pL0">
+  <img width="600" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/youtube.png">
+</a>
 
 List of materials:
 1x PCB
