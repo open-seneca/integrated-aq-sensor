@@ -1,13 +1,30 @@
-# Sensor kit assembly guide
+## Sensor kit assembly guide
 This tutorial will take you through 10 steps to assemble the open-seneca air quality sensor kit. For our video guide please click here:
-
 <a href="https://youtu.be/tqcllXC5pL0">
   <img width="600" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/youtube.png">
 </a>
 
-List of materials:
-1x PCB
-...
+# What you need:
+- Screwdriver
+- Scissors
+
+# List of materials:
+- Colourful sticker
+- PCB
+- SPS30 sensor
+Sensor box:
+  - 1000mAh battery
+  - Male bike mount
+Cardboard pouch:
+  - Female bike mount
+  - 5-pin SPS cable
+  - 4x M3 Sensor box screw
+  - 4x Rubber bands
+  - 4x Nylon PCB Screw
+  - Sensor box seal
+  - Display
+  - GPS antenna
+  - SD card
 
 1) Lay out all the components in front of you, place the display face down inside the cutout of the grey box.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/1.jpg">
