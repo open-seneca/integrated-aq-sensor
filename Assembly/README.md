@@ -1,4 +1,4 @@
-# Sensor kit assembly guide
+# Sensor kit tutorial
 <a href="https://youtu.be/tqcllXC5pL0">
   <img width="600" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/youtube.png">
 </a>
@@ -24,8 +24,9 @@
   - Display
   - GPS antenna
   - SD card
+ - Micro USB cable (for charging)
 
-## This tutorial will take you through 10 steps to assemble the open-seneca air quality sensor kit:
+### This tutorial will take you through 10 steps to assemble the open-seneca air quality sensor kit:
 1) Lay out all the components in front of you, place the display face down inside the cutout of the grey box.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/1.jpg">
 2) If not provided, deposited double-sided foam adhesive. Then peel off to fix the battery and the GPS antenna. It is important to place the battery and GPS antenna excatly as shown in the photo for the cables to run inside the box!
