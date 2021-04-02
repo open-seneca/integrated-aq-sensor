@@ -1,5 +1,5 @@
 # Sensor kit tutorial
-<a href="https://youtu.be/tqcllXC5pL0">
+<a href="https://youtu.be/BtTGyxRZdDM">
   <img width="600" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/youtube.png">
 </a>
 
