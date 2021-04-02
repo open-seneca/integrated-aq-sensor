@@ -24,7 +24,7 @@
   - Display
   - GPS antenna
   - SD card
- - Micro USB cable (for charging)
+ - Micro USB charging cable (not included)
 
 ### This tutorial will take you through 10 steps to assemble the open-seneca air quality sensor kit:
 1) Lay out all the components in front of you, place the display face down inside the cutout of the grey box.
