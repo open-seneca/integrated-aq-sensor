@@ -72,7 +72,9 @@ void	GPS_Process(void)
 			GPS.GPGGA.LongitudeDecimal = 0.0f;
 		} else {
 			GPS.GPGGA.LatitudeDecimal=convertDegMinToDecDeg(GPS.GPGGA.Latitude);
+			if (GPS.GPGGA.NS_Indicator=="S") GPS.GPGGA.LatitudeDecimal *= -1; // subject to testing 21/04/2021
 			GPS.GPGGA.LongitudeDecimal=convertDegMinToDecDeg(GPS.GPGGA.Longitude);
+			if (GPS.GPGGA.EW_Indicator=="E") GPS.GPGGA.LongitudeDecimal *= -1; // subject to testing 21/04/2021
 		}
 		str2=strstr((char*)GPS.rxBuffer,"GNZDA,"); // GNZDA for where the date is in the buffer
 		if(str2!=NULL) {
