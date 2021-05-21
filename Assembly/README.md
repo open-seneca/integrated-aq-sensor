@@ -41,7 +41,7 @@
   <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/4c.jpg">
 6) Now, screw down the PCB with 4 nylon/plastic M3 screws provided. If you were supplied with metal screws (as shown in this photo) use only 3 screws and leave out the one by the power button.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/5b.jpg">
-7) You can not plug in the Sensirion particulate matter sensor using the provided black 5pin cable. The lid opening will align with the sensor's venting holes. It is particularly important not to over tighten the screws holding the PCB in place. You can either use 4 Nylon screws or 3 metal screws (leave out the bottom right one next to the on-button in this case).
+7) You can not plug in the Sensirion particulate matter sensor using the provided black 5pin cable. The lid opening will align with the sensor's venting holes. It is particularly important not to over tighten the screws holding the PCB in place. Please note: only use 3 screws and leave out the bottom right hole next to the on-button since it is close to electronics that might be damaged.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/6b.jpg">
 8) Prepare the lid by placing the white seal inside the rim and cut off the excess. 
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7a.jpg"> <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7b.jpg">
