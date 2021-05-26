@@ -9,3 +9,9 @@
 5) Go to "Erasing and Programming" by clicking on the header in the top left. Under "File path" browse to the location where you saved the [.hex file](https://raw.githubusercontent.com/sh969/integrated-aq-sensor/main/Firmware/Debug/Firmware.hex) with open-seneca code. Tick "Verify programming" and "Run after programming". Then click "Start Programm..."
 
 6) After a few seconds flash should be successful and the SPS30 sensor fan should be audible. Flick side switch on PCB back into run mode (R).
+
+
+------------------------------------
+
+If you want to dive deeper into DIY electronics, we recommend the website and Youtube channel of Philip Salmony who helped us design the open-seneca board.
+[<img width="200" src="https://raw.githubusercontent.com/open-seneca/integrated-aq-sensor/main/.images/PhilsLabLogo.png">](http://philsal.co.uk/)
