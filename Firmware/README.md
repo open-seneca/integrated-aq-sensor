@@ -13,6 +13,6 @@
 
 ------------------------------------
 
-If you want to dive deeper into DIY electronics, we recommend the website and excellent Youtube channel of Philip Salmony who helped us design the open-seneca board.
+If you want to learn more about DIY electronics, we recommend the excellent website and Youtube channel of Philip Salmony who helped us design the open-seneca board.
 
 [<img width="200" src="https://raw.githubusercontent.com/open-seneca/integrated-aq-sensor/main/.images/PhilsLabLogo.png">](http://philsal.co.uk/)
