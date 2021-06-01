@@ -45,7 +45,7 @@
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/6b.jpg">
 8) Prepare the lid by placing the white seal inside the rim and cut off the excess. 
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7a.jpg"> <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/7b.jpg">
-9) Attach the Sensirion sensor to the transparent lid using double sided tape (provided).  Note that the Sensirion sensor is placed slightly off centre - the footprint position for the sensor is indicated as a white line on the PCB. Please do *not* peel off the protective film around the Sensirion sensor. Close the lid and make sure you do not trap any cables.
+9) Attach the Sensirion sensor to the transparent lid using double sided tape (provided).  Note that the Sensirion sensor is placed slightly off centre - the footprint position for the sensor is indicated as a white line on the PCB. Please do *not* peel off the protective film around the Sensirion sensor. Close the lid and make sure you do not trap any cables. Use 4 M3 screws to fix the lid - again do not over tighten.
 <img width="400" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/Assembly/Photos/9.jpg">
 10) Finally, fix the self-adhesive bike mount piece centrally on the outside of the transparent lid.
 
