@@ -10,6 +10,12 @@
 
 6) After a few seconds flash should be successful and the SPS30 sensor fan should be audible. Flick side switch on PCB back into run mode (R).
 
+Debugging:
+The STAT LED (next to the SD card slot) lights if there is anything wrong with your board. The colours mean the following:
+- red: battery voltage reading not between 2.6V and 5V
+- blue: humidity reading not between 0 and 100% (faulty SHT sensor?)
+- purple: SD card is not found or cannot be read/written
+- cyan: SPS sensor does not respond
 
 ------------------------------------
 
