@@ -9,25 +9,25 @@
                 				
                 <language id="org.eclipse.cdt.core.gcc">
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/newlib-nano">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/newlib-nano">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include-fixed">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include-fixed">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -255,6 +255,12 @@
                         					
                     </entry>
                     					
+                    <entry kind="macro" name="__CHAR16_TYPE__" value="short unsigned int">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
                     <entry kind="macro" name="__CHAR32_TYPE__" value="long unsigned int">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -262,12 +268,6 @@
                     </entry>
                     					
                     <entry kind="macro" name="__CHAR_BIT__" value="8">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
-                    <entry kind="macro" name="__CHAR_UNSIGNED__" value="8">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -328,12 +328,6 @@
                     </entry>
                     					
                     <entry kind="macro" name="__DBL_HAS_QUIET_NAN__" value="1">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
-                    <entry kind="macro" name="__DBL_MANT_DIG__" value="6">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -417,12 +411,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__DEC128_SUBNORMAL_MIN__" value="16">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__DEC128_SUBNORMAL_MIN__" value="0.000000000000000000000000000000001E-6143DL">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -459,12 +447,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__DEC32_MIN__" value="17">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__DEC32_MIN__" value="1E-95DF">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -478,6 +460,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__DEC64_EPSILON__" value="1E-15DD">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__DEC64_MANT_DIG__" value="16">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -550,6 +538,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__FLOAT_WORD_ORDER__" value="__ORDER_LITTLE_ENDIAN__">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__FLT32X_DECIMAL_DIG__" value="17">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -676,12 +670,6 @@
                     </entry>
                     					
                     <entry kind="macro" name="__FLT32_MANT_DIG__" value="24">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
-                    <entry kind="macro" name="__FLT32_MAX_10_EXP__" value="17">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -819,6 +807,12 @@
                         					
                     </entry>
                     					
+                    <entry kind="macro" name="__FLT_DIG__" value="6">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
                     <entry kind="macro" name="__FLT_EPSILON__" value="1.1920928955078125e-7F">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -874,12 +868,6 @@
                     </entry>
                     					
                     <entry kind="macro" name="__FLT_MAX__" value="3.4028234663852886e+38F">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
-                    <entry kind="macro" name="__FLT_MIN_10_EXP__" value="32">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -1053,12 +1041,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__GNUC_PATCHLEVEL__" value="9">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__GNUC_PATCHLEVEL__" value="1">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -1066,6 +1048,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__GNUC_STDC_INLINE__" value="1">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__GNUC__" value="9">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -1179,12 +1167,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__INT8_TYPE__" value="short unsigned int">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__INT8_TYPE__" value="signed char">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -1222,6 +1204,18 @@
                     </entry>
                     					
                     <entry kind="macro" name="__INTPTR_TYPE__" value="int">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__INTPTR_WIDTH__" value="32">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__INT_FAST16_MAX__" value="0x7fffffff">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -1365,6 +1359,12 @@
                         					
                     </entry>
                     					
+                    <entry kind="macro" name="__INT_MAX__" value="0x7fffffff">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
                     <entry kind="macro" name="__INT_WIDTH__" value="32">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -1396,6 +1396,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__LACCUM_MIN__" value="(-0X1P31LK-0X1P31LK)">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__LDBL_DECIMAL_DIG__" value="17">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -1480,12 +1486,6 @@
                     </entry>
                     					
                     <entry kind="macro" name="__LFRACT_EPSILON__" value="0x1P-31LR">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
-                    <entry kind="macro" name="__LFRACT_FBIT__" value="(-0.5HR-0.5HR)">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -1743,6 +1743,12 @@
                         					
                     </entry>
                     					
+                    <entry kind="macro" name="__SFRACT_MIN__" value="(-0.5HR-0.5HR)">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
                     <entry kind="macro" name="__SHRT_MAX__" value="0x7fff">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -1857,6 +1863,12 @@
                         					
                     </entry>
                     					
+                    <entry kind="macro" name="__SIZE_TYPE__" value="unsigned int">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
                     <entry kind="macro" name="__SIZE_WIDTH__" value="32">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -1882,6 +1894,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__STDC_UTF_16__" value="1">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__STDC_UTF_32__" value="1">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -2020,6 +2038,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__UHA_FBIT__" value="8">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__UHA_IBIT__" value="8">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -2499,12 +2523,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__WCHAR_MAX__" value="0x7fffffff">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__WCHAR_MAX__" value="0xffffffffU">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -2587,43 +2605,43 @@
                 				
                 <language id="org.eclipse.cdt.core.g++">
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/newlib-nano">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/newlib-nano">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+fp/hard">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+fp/hard">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1/backward">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1/backward">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include-fixed">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include-fixed">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -2821,12 +2839,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__ATOMIC_RELAXED" value="3">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__ATOMIC_RELAXED" value="0">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -2959,12 +2971,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__DBL_MIN_10_EXP__" value="1">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__DBL_MIN_10_EXP__" value="(-307)">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -2983,12 +2989,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__DEC128_EPSILON__" value="6145">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__DEC128_EPSILON__" value="1E-33DL">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -2996,6 +2996,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__DEC128_MANT_DIG__" value="34">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__DEC128_MAX_EXP__" value="6145">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -3067,12 +3073,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__DEC64_EPSILON__" value="385">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__DEC64_EPSILON__" value="1E-15DD">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -3080,6 +3080,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__DEC64_MANT_DIG__" value="16">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__DEC64_MAX_EXP__" value="385">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -3337,12 +3343,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__FLT64_DENORM_MIN__" value="308">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__FLT64_DENORM_MIN__" value="4.9406564584124654e-324F64">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -3380,6 +3380,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__FLT64_MANT_DIG__" value="53">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__FLT64_MAX_10_EXP__" value="308">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -3457,6 +3463,12 @@
                         					
                     </entry>
                     					
+                    <entry kind="macro" name="__FLT_HAS_INFINITY__" value="1">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
                     <entry kind="macro" name="__FLT_HAS_QUIET_NAN__" value="1">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -3523,13 +3535,13 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__FRACT_EPSILON__" value="15">
+                    <entry kind="macro" name="__FRACT_EPSILON__" value="0x1P-15R">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__FRACT_EPSILON__" value="0x1P-15R">
+                    <entry kind="macro" name="__FRACT_FBIT__" value="15">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -3644,6 +3656,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__GCC_IEC_559_COMPLEX" value="0">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__GNUC_MINOR__" value="3">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -3806,12 +3824,6 @@
                     </entry>
                     					
                     <entry kind="macro" name="__INTMAX_C(c)" value="c ## LL">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
-                    <entry kind="macro" name="__INTMAX_MAX__" value="32">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -4003,6 +4015,12 @@
                         					
                     </entry>
                     					
+                    <entry kind="macro" name="__INT_WIDTH__" value="32">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
                     <entry kind="macro" name="__LACCUM_EPSILON__" value="0x1P-31LK">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -4028,12 +4046,6 @@
                     </entry>
                     					
                     <entry kind="macro" name="__LACCUM_MIN__" value="(-0X1P31LK-0X1P31LK)">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
-                    <entry kind="macro" name="__LDBL_DECIMAL_DIG__" value="53">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -4076,6 +4088,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__LDBL_HAS_QUIET_NAN__" value="1">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__LDBL_MANT_DIG__" value="53">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -4849,12 +4867,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__UINT_LEAST16_TYPE__" value="long long unsigned int">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__UINT_LEAST32_MAX__" value="0xffffffffUL">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -4868,6 +4880,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__UINT_LEAST64_MAX__" value="0xffffffffffffffffULL">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__UINT_LEAST64_TYPE__" value="long long unsigned int">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -5221,12 +5239,6 @@
                         					
                     </entry>
                     					
-                    <entry kind="macro" name="__cpp_alias_templates" value="200710">
-                        						
-                        <flag value="BUILTIN|READONLY"/>
-                        					
-                    </entry>
-                    					
                     <entry kind="macro" name="__cpp_alias_templates" value="200704">
                         						
                         <flag value="BUILTIN|READONLY"/>
@@ -5330,6 +5342,12 @@
                     </entry>
                     					
                     <entry kind="macro" name="__cpp_raw_strings" value="200710">
+                        						
+                        <flag value="BUILTIN|READONLY"/>
+                        					
+                    </entry>
+                    					
+                    <entry kind="macro" name="__cpp_ref_qualifiers" value="200710">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -5453,25 +5471,25 @@
                 				
                 <language id="org.eclipse.cdt.core.gcc">
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/newlib-nano">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/newlib-nano">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include-fixed">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include-fixed">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
@@ -8049,43 +8067,43 @@
                 				
                 <language id="org.eclipse.cdt.core.g++">
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/newlib-nano">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/newlib-nano">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+fp/hard">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1/arm-none-eabi/thumb/v7e-m+fp/hard">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1/backward">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include/c++/9.3.1/backward">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include-fixed">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/lib/gcc/arm-none-eabi/9.3.1/include-fixed">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
                     </entry>
                     					
-                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.0/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include">
+                    <entry kind="includePath" name="C:/ST/STM32CubeIDE_1.6.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.9-2020-q2-update.win32_1.5.0.202011040924/tools/arm-none-eabi/include">
                         						
                         <flag value="BUILTIN|READONLY"/>
                         					
