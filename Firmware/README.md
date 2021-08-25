@@ -11,9 +11,9 @@
 6) After a few seconds flash should be successful and the SPS30 sensor fan should be audible. Flick side switch on PCB back into run mode (R).
 
 Flashing/Hex Files:
-[v0 March 2021](https://raw.githubusercontent.com/open-seneca/integrated-aq-sensor/main/Firmware/STM32F405RGT6/Debug/03-2021%20Hex%20(C40)/Firmware.hex)
-[v1 May 2021](https://github.com/open-seneca/integrated-aq-sensor/tree/main/Firmware/STM32L071RBT6) Needs to be flashed via SWD!
-[v2 July 2021](https://raw.githubusercontent.com/open-seneca/integrated-aq-sensor/main/Firmware/STM32F405RGT6/Debug/Firmware.hex)
+- [v0 March 2021](https://raw.githubusercontent.com/open-seneca/integrated-aq-sensor/main/Firmware/STM32F405RGT6/Debug/03-2021%20Hex%20(C40)/Firmware.hex)
+- [v1 May 2021](https://github.com/open-seneca/integrated-aq-sensor/tree/main/Firmware/STM32L071RBT6) Needs to be flashed via SWD!
+- [v2 July 2021](https://raw.githubusercontent.com/open-seneca/integrated-aq-sensor/main/Firmware/STM32F405RGT6/Debug/Firmware.hex)
 
 Debugging:
 The STAT LED (next to the SD card slot) lights if there is anything wrong with your board. The colours mean the following:
