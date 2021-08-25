@@ -1,0 +1,2 @@
+u8g2_stm32f0xx.c:16:9:u8x8_stm32_gpio_and_delay	32	static
+u8g2_stm32f0xx.c:33:9:u8x8_byte_stm32_hw_i2c	48	static

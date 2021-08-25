@@ -1,0 +1,4 @@
+u8g2_box.c:42:6:u8g2_DrawBox	32	static
+u8g2_box.c:63:6:u8g2_DrawFrame	48	static
+u8g2_box.c:85:6:u8g2_DrawRBox	48	static
+u8g2_box.c:144:6:u8g2_DrawRFrame	48	static

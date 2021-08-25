@@ -1,0 +1,8 @@
+u8x8_d_st75256.c:157:16:u8x8_d_st75256_256x128_generic	40	static
+u8x8_d_st75256.c:334:9:u8x8_d_st75256_jlx256128	24	static
+u8x8_d_st75256.c:468:9:u8x8_d_st75256_jlx25664	24	static
+u8x8_d_st75256.c:601:9:u8x8_d_st75256_jlx172104	32	static
+u8x8_d_st75256.c:793:9:u8x8_d_st75256_jlx240160	32	static
+u8x8_d_st75256.c:988:9:u8x8_d_st75256_jlx256160	40	static
+u8x8_d_st75256.c:1182:9:u8x8_d_st75256_jlx256160_alt	40	static
+u8x8_d_st75256.c:1373:9:u8x8_d_st75256_jlx19296	32	static

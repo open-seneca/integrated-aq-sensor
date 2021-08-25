@@ -1,0 +1,3 @@
+u8x8_d_ssd1306_128x32.c:105:16:u8x8_d_ssd1306_128x32_generic	32	static
+u8x8_d_ssd1306_128x32.c:204:9:u8x8_d_ssd1306_128x32_univision	24	static
+u8x8_d_ssd1306_128x32.c:244:9:u8x8_d_ssd1306_128x32_winstar	24	static
