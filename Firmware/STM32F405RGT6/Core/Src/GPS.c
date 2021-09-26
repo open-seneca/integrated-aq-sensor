@@ -51,7 +51,7 @@ void	GPS_Process(void)
 	printf("%s",GPS.rxBuffer);
 	#endif
 	GPS.GPGGA.Buffer_Size = strlen(GPS.rxBuffer);
-	str=strstr((char*)GPS.rxBuffer,"GNGGA,"); // GNZDA for where the date is in the buffer
+	str=strstr((char*)GPS.rxBuffer,"GNGGA,");
 	if(str!=NULL)
 	{
 		memset(&GPS.GPGGA,0,sizeof(GPS.GPGGA));  // resets GPGGA to 0
@@ -72,9 +72,13 @@ void	GPS_Process(void)
 			GPS.GPGGA.LongitudeDecimal = 0.0f;
 		} else {
 			GPS.GPGGA.LatitudeDecimal=convertDegMinToDecDeg(GPS.GPGGA.Latitude);
-			if (GPS.GPGGA.NS_Indicator=="S") GPS.GPGGA.LatitudeDecimal *= -1; // subject to testing 21/04/2021
+			if (GPS.GPGGA.NS_Indicator!=78) { // 78 equals "N"
+				GPS.GPGGA.LatitudeDecimal *= -1;
+			}
 			GPS.GPGGA.LongitudeDecimal=convertDegMinToDecDeg(GPS.GPGGA.Longitude);
-			if (GPS.GPGGA.EW_Indicator=="E") GPS.GPGGA.LongitudeDecimal *= -1; // subject to testing 21/04/2021
+			if (GPS.GPGGA.EW_Indicator!=69) { // 69 equals "E"
+				GPS.GPGGA.LongitudeDecimal *= -1;
+			}
 		}
 		str2=strstr((char*)GPS.rxBuffer,"GNZDA,"); // GNZDA for where the date is in the buffer
 		if(str2!=NULL) {

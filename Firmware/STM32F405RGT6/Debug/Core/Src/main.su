@@ -25,5 +25,5 @@ main.c:417:5:saveToSD	24	static
 main.c:434:5:writeFileHeader	256	static
 main.c:453:6:updateADC	8	static
 main.c:468:5:main	408	static
-main.c:624:6:SystemClock_Config	88	static
-main.c:671:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:615:6:SystemClock_Config	88	static
+main.c:662:6:Error_Handler	4	static,ignoring_inline_asm
