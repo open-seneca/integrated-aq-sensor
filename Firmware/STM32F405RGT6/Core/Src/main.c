@@ -259,6 +259,22 @@ void lowBatteryDisplay() {
 
 }
 
+void dataTransferDisplay() {
+
+	char screen_str[32] = "File: ";
+	u8g2_FirstPage(&u8g2);
+		do
+		{
+			u8g2_ClearBuffer(&u8g2);
+			u8g2_SetFont(&u8g2, u8g2_font_profont17_tf);
+			u8g2_DrawStr(&u8g2, 127, 20, "BT transmit...");
+			u8g2_SetFont(&u8g2, u8g2_font_profont10_tf);
+			strcat(screen_str, filename);
+			u8g2_DrawStr(&u8g2, 127, 4, screen_str);
+		} while (u8g2_NextPage(&u8g2));
+
+}
+
 int SHTC3_read_data() { // for sht21
 
 	  /* Clock stretching enabled, read T first */
@@ -403,6 +419,7 @@ void checkBTconn() {
 }
 
 void generateFilename() {
+
 	int filenumber = 0;
 	FRESULT res;
 	/* first 3 digits from SPS SN, then 4 digit file counter */
@@ -430,6 +447,51 @@ int saveToSD(uint8_t *dBuf, uint8_t dBufLen) {
 
 	return bytesWrote;
 }
+
+int getSDcardStats() {
+
+	//Let's get some statistics from the SD card
+	DWORD free_clusters, free_sectors, total_sectors;
+	FATFS* getFreeFs;
+
+	fres = f_getfree("", &free_clusters, &getFreeFs); // takes a few sec to run
+
+	//Formula comes from ChaN's documentation
+	total_sectors = (getFreeFs->n_fatent - 2) * getFreeFs->csize;
+	free_sectors = free_clusters * getFreeFs->csize;
+
+}
+
+void transmitSDcardData() {
+
+	uint8_t filenumber = 0;
+	FRESULT res;
+	BYTE readBuf[255];
+	/* first 3 digits from SPS SN, then 4 digit file counter */
+	while (res == FR_OK) {
+		sprintf(filename, "%c%c%c%04d.csv", SPS30.serial[13], SPS30.serial[14], SPS30.serial[15], filenumber);
+		dataTransferDisplay();
+		res = f_open(&fil, filename, FA_READ);
+
+		// if the file exists, dump its content to the BT module
+		if (res == FR_OK) {
+			//We can either use f_read OR f_gets to get data out of files
+			//f_gets is a wrapper on f_read that does some string formatting for us
+			TCHAR* rres = f_gets((TCHAR*)readBuf, 255, &fil);
+			while (rres != 0) {
+				AirLED_off();
+				CDC_Transmit_FS(readBuf, strlen(readBuf)); // required for COM port
+				HAL_UART_Transmit(&huart1, readBuf, strlen(readBuf), HAL_MAX_DELAY);
+				AirLED_on();
+				rres = f_gets((TCHAR*)readBuf, 255, &fil);
+			}
+		}
+
+		f_close(&fil);
+		filenumber++;
+	}
+}
+
 
 int writeFileHeader() {
 
@@ -529,7 +591,12 @@ int main(void)
 
   //Mount the file system
   f_mount(&FatFs, "", 1);
-  generateFilename();
+
+  // beta feature: send all SD card data at boot, replaces generateFilename()
+  transmitSDcardData();
+//  generateFilename();
+
+  // write header for new file
   writeFileHeader();
 
 
