@@ -480,7 +480,7 @@ void transmitSDcardData() {
 			TCHAR* rres = f_gets((TCHAR*)readBuf, 255, &fil);
 			while (rres != 0) {
 				AirLED_off();
-				CDC_Transmit_FS(readBuf, strlen(readBuf)); // required for COM port
+//				CDC_Transmit_FS(readBuf, strlen(readBuf)); // required for COM port
 				HAL_UART_Transmit(&huart1, readBuf, strlen(readBuf), HAL_MAX_DELAY);
 				AirLED_on();
 				rres = f_gets((TCHAR*)readBuf, 255, &fil);
