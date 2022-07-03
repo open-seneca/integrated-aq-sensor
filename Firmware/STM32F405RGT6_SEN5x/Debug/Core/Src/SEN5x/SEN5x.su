@@ -1,0 +1,8 @@
+SEN5x.c:10:9:CalcCrc	32	static
+SEN5x.c:26:6:SPS30_start_measurement	24	static
+SEN5x.c:34:6:SPS30_stop_measurement	24	static
+SEN5x.c:40:9:SPS30_read_data	56	static
+SEN5x.c:78:9:SPS30_data_ready	24	static
+SEN5x.c:88:6:SPS30_clean_fan	24	static
+SEN5x.c:94:6:SPS30_reset	24	static
+SEN5x.c:101:6:SPS30_read_serialnumber	64	static

@@ -1,0 +1,4 @@
+u8x8_d_uc1608.c:72:9:u8x8_d_uc1608_common	32	static
+u8x8_d_uc1608.c:206:9:u8x8_d_uc1608_erc24064	24	static
+u8x8_d_uc1608.c:288:9:u8x8_d_uc1608_240x128	24	static
+u8x8_d_uc1608.c:371:9:u8x8_d_uc1608_erc240120	24	static

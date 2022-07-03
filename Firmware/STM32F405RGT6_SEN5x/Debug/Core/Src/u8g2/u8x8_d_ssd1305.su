@@ -1,0 +1,4 @@
+u8x8_d_ssd1305.c:76:16:u8x8_d_ssd1305_generic	32	static
+u8x8_d_ssd1305.c:194:9:u8x8_d_ssd1305_128x32_noname	24	static
+u8x8_d_ssd1305.c:257:9:u8x8_d_ssd1305_128x32_adafruit	24	static
+u8x8_d_ssd1305.c:358:9:u8x8_d_ssd1305_128x64_adafruit	24	static
