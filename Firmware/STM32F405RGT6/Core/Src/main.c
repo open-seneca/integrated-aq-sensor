@@ -593,8 +593,8 @@ int main(void)
   f_mount(&FatFs, "", 1);
 
   // beta feature: send all SD card data at boot, replaces generateFilename()
-  transmitSDcardData();
-//  generateFilename();
+//  transmitSDcardData();
+  generateFilename();
 
   // write header for new file
   writeFileHeader();

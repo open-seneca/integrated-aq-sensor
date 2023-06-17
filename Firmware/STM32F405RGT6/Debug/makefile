@@ -72,8 +72,8 @@ all:
 main-build: Firmware.elf secondary-outputs
 
 # Tool invocations
-Firmware.elf: $(OBJS) $(USER_OBJS) C:\Users\Sebastian\OneDrive\ -\ University\ of\ Cambridge\University\open-seneca\Hardware\integrated-aq-sensor\Firmware\STM32F405RGT6\STM32F405RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "Firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Sebastian\OneDrive - University of Cambridge\University\open-seneca\Hardware\integrated-aq-sensor\Firmware\STM32F405RGT6\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
+Firmware.elf: $(OBJS) $(USER_OBJS) C:\Users\Sebastian\Documents\Github\integrated-aq-sensor\Firmware\STM32F405RGT6\STM32F405RGTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "Firmware.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"C:\Users\Sebastian\Documents\Github\integrated-aq-sensor\Firmware\STM32F405RGT6\STM32F405RGTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="Firmware.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -u _printf_float -u _scanf_float -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 

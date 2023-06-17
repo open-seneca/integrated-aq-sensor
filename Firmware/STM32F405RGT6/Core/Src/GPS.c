@@ -72,11 +72,11 @@ void	GPS_Process(void)
 			GPS.GPGGA.LongitudeDecimal = 0.0f;
 		} else {
 			GPS.GPGGA.LatitudeDecimal=convertDegMinToDecDeg(GPS.GPGGA.Latitude);
-			if (GPS.GPGGA.NS_Indicator!=78) { // 78 equals "N"
+			if (GPS.GPGGA.NS_Indicator!='N') {
 				GPS.GPGGA.LatitudeDecimal *= -1;
 			}
 			GPS.GPGGA.LongitudeDecimal=convertDegMinToDecDeg(GPS.GPGGA.Longitude);
-			if (GPS.GPGGA.EW_Indicator!=69) { // 69 equals "E"
+			if (GPS.GPGGA.EW_Indicator!='E') {
 				GPS.GPGGA.LongitudeDecimal *= -1;
 			}
 		}
