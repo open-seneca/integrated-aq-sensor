@@ -500,7 +500,7 @@ int writeFileHeader() {
 
 	UINT bytesWrote;//Number of bytes written
 	uint8_t details[39];
-	uint8_t length = sprintf(details, "STM32_v0.2,,,SPS30_SN:%s\n", SPS30.serial);
+	uint8_t length = sprintf(details, "STM32_v0.3,,,SPS30_SN:%s\n", SPS30.serial);
 	if (f_write(&fil, details, length, &bytesWrote) != FR_OK) return -1;
 
 	uint8_t header[195];
