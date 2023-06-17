@@ -8,6 +8,8 @@ You can visit us here: http://open-seneca.org
 
 BETA: SEN55 support (includes VOC and NOX measurements). Sensor casing requires adaptation. Edit 07/22.
 
+UPDATE 06/23: Longitude issue has now been fixed. Flash new .elf file to upgrade.
+
 Download the sensor logging app for iPhone and Android:
 
 [<img width="200" src="https://raw.githubusercontent.com/sh969/integrated-aq-sensor/master/.images/apple.png">](https://apps.apple.com/gb/app/open-seneca/id1557645819?fbclid=IwAR2OlgHsh-e7t_3RmL6pHDrDfW7VRLy2B10hRCUW2dqcQbhn8BgqbDvHhck)
